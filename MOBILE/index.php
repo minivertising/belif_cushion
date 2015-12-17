@@ -48,10 +48,10 @@
     </div>
     <div class="btn_sns_block">
       <div class="inner_btn_sns_block clearfix">
-        <a href="#"><img src="images/btn_fb.png" alt=""/></a>
-        <a href="#"><img src="images/btn_kt.png" alt=""/></a>
-        <a href="#"><img src="images/btn_ks.png" alt=""/></a>
-        <a href="#"><img src="images/btn_tw.png" alt=""/></a>
+        <a href="#" onclick="sns_share('fb','main');return false;"><img src="images/btn_fb.png" alt=""/></a>
+        <a href="#" onclick="sns_share('kt','main');return false;"><img src="images/btn_kt.png" alt=""/></a>
+        <a href="#" onclick="sns_share('ks','main');return false;"><img src="images/btn_ks.png" alt=""/></a>
+        <a href="#" onclick="sns_share('tw','main');return false;"><img src="images/btn_tw.png" alt=""/></a>
       </div>
     </div>
   </div>
@@ -78,7 +78,7 @@
 </html>
 <script type="text/javascript">
 $(document).ready(function() {
-	//Kakao.init('f3a512c4931967328de52deaf00f614e');
+	Kakao.init('82ede71bb1ebb8db5c131f7de027edc1');
 	$("#cboxTopLeft").hide();
 	$("#cboxTopRight").hide();
 	$("#cboxBottomLeft").hide();

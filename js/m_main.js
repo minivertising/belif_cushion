@@ -91,14 +91,21 @@ function right_answer(param)
 		});
 		$("#step_image").attr("src","images/step_2.png");
 	}else if (param == "2"){
-		$("#game3_div").hide();
-		$("#game4_div").show();
+		$("#game3_div").fadeOut(100,function(){
+			$("#game4_div").fadeIn(100);
+		});
 		$("#step_image").attr("src","images/step_3.png");
 	}else if (param == "3"){
-		$("#game4_div").hide();
 		$("#game5_div").show();
-		$("#game_timer").hide();
 		clearInterval(counter);
+		$( 'html, body' ).animate({ scrollTop: $("#game4_div").height()},500,function(){
+			$("#game4_div").hide();
+			$("#step_div").hide();
+			$("#sec_div").hide();
+			$("#bar_div").hide();
+			$(".close").hide();
+		});
+
 	}
 }
 
@@ -119,12 +126,9 @@ function change_addr(param)
 function ins_info()
 {
 	var mb_name		= $("#mb_name").val();
-	var mb_phone1		= $("#mb_phone1").val();
-	var mb_phone2		= $("#mb_phone2").val();
-	var mb_phone3		= $("#mb_phone3").val();
+	var mb_phone		= $("#mb_phone").val();
 	var mb_addr		= $("#mb_addr").val();
 	var mb_shop		= $("#mb_shop").val();
-	var mb_phone		= mb_phone1 + mb_phone2 + mb_phone3;
 
 	if (mb_name == "")
 	{
@@ -134,18 +138,10 @@ function ins_info()
 		return false;
 	}
 
-	if (mb_phone2 == "")
+	if (mb_phone == "")
 	{
 		alert('전화번호를 입력해 주세요.');
-		$("#mb_phone2").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if (mb_phone3 == "")
-	{
-		alert('전화번호를 입력해 주세요.');
-		$("#mb_phone3").focus();
+		$("#mb_phone").focus();
 		//chk_ins = 0;
 		return false;
 	}
@@ -158,21 +154,19 @@ function ins_info()
 		return false;
 	}
 
-/*
 	if (chk_mb_flag == 0)
 	{
 		alert("개인정보 취급 동의/광고동의를 안 하셨습니다");
 		//chk_ins = 0;
 		return false;
 	}
-*/
-
+/*
 	if ($('#mb_agree').is(":checked") == false)
 	{
 		alert("약관에 동의를 안 하셨습니다");
 		return false;
 	}
-
+*/
 	$.ajax({
 		type:"POST",
 		data:{
@@ -186,7 +180,11 @@ function ins_info()
 			alert(response);
 			if (response == "Y")
 			{
-				open_pop("complete_popup");
+				//open_pop("complete_popup");
+				$("#game6_div").show();
+				$( 'html, body' ).animate({ scrollTop: $("#game5_div").height()},500,function(){
+					$("#game5_div").hide();
+				});
 			}else{
 				open_pop("duplicate_popup");
 			}
@@ -263,5 +261,90 @@ function move_page(param)
 		$("html").removeClass("gnbOpen");
 		$(".sec_top").show();
 		$( 'html, body' ).animate({ scrollTop: product_area},500);
+	}
+}
+
+function mb_check()
+{
+	if (chk_mb_flag == 0)
+	{
+		$("#mb_agree").attr("src","images/checked.png");
+		chk_mb_flag = 1;
+	}else{
+		$("#mb_agree").attr("src","images/check.png");
+		chk_mb_flag = 0;
+	}
+}
+
+function sns_share(media, flag)
+{
+	if (media == "fb")
+	{
+
+		var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://www.belif-factory.com/MOBILE/index.php'),'sharer','toolbar=0,status=0,width=600,height=325');
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "../main_exec.php",
+			data:{
+				"exec" : "insert_share_info",
+				"sns_media" : media,
+				"sns_flag"		: flag
+			}
+		});
+		//var newWindow = window.open('https://www.facebook.com/dialog/feed?app_id=1604312303162602&display=popup&caption=testurl&link=http://vacance.babience-event.com&redirect_uri=http://www.hanatour.com','sharer','toolbar=0,status=0,width=600,height=325');
+	}else if (media == "tw"){
+		var newWindow = window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent("빌리의 수분 폭탄 공장에 숨어 있는 빌리를 찾아주신 분에게는 즉석 당첨을 통해 수분 폭탄 쿠션 미니어처를 드립니다. ") + '&url='+ encodeURIComponent('http://bit.ly/1QuvGJU'),'sharer','toolbar=0,status=0,width=600,height=325');
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "../main_exec.php",
+			data:{
+				"exec" : "insert_share_info",
+				"sns_media" : media,
+				"sns_flag"		: flag
+			}
+		});
+	}else if (media == "kt"){
+		// 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+		//Kakao.Link.createTalkLinkButton({
+		Kakao.Link.sendTalkLink({
+		  //container: '#kakao-link-btn',
+		  label: "빌리를 찾으면 수분 폭탄 쿠션이 내게로",
+		  image: {
+			src: 'http://www.belif-factory.com/MOBILE/images/sns.jpg',
+			width: '1200',
+			height: '630'
+		  },
+		  webButton: {
+			text: '빌리의 수분 폭탄 공장',
+			url: 'http://www.belif-factory.com/?media=kt' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+		  }
+		});
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "../main_exec.php",
+			data:{
+				"exec" : "insert_share_info",
+				"sns_media" : media,
+				"sns_flag"		: flag
+			}
+		});
+	}else{
+		Kakao.Story.share({
+			url: 'http://www.belif-factory.com/media=ks',
+			text: '[빌리프] 빌리의 수분 폭탄 공장\r\n\r\n빌리의 수분 폭탄 공장에 숨어 있는 빌리를 찾아주신분에게는 즉석당첨을 통해 수분 폭탄 쿠션 미니어처를 드립니다.'
+		});
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "../main_exec.php",
+			data:{
+				"exec" : "insert_share_info",
+				"sns_media" : media,
+				"sns_flag"		: flag
+			}
+		});
 	}
 }

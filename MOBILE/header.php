@@ -11,11 +11,11 @@
 <meta name="viewport" content="width=device-width, user-scalable=yes,initial-scale=1.0, maximum-scale=3.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
-    <meta property="og:title" content="2015 베비언스 어워즈">
+    <meta property="og:title" content="[빌리프] 빌리의 수분 폭탄 공장">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://awards.babience-event.com/PC/index.php" />
-    <meta property="og:image" content="http://awards.babience-event.com/MOBILE/images/sns.jpg" />
-    <meta property="og:description" content="후보 지원해도, 심사만해도 100% 당첨되는 특별한 시상식에 여러분을 초대합니다. http://bit.ly/1YdXrYc">
+    <meta property="og:url" content="http://www.belif-factory.com/MOBILE/index.php" />
+    <meta property="og:image" content="http://www.belif-factory.com/MOBILE/images/belif_billy_share.jpg" />
+    <meta property="og:description" content="숨어있는 빌리 찾고 선물받자!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="./images/fabicon.ico" />
 <title>Babience Awards</title>

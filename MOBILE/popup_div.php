@@ -115,4 +115,21 @@
 </div>
 <!----------------- 중복 참여 팝업 ----------------->
 
+<!----------------- 약관 팝업 ----------------->
+<div id="agree_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="img_agree">
+          <img src="images/popup/img_agree.png" />
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 약관 팝업 ----------------->
+
 </div>
