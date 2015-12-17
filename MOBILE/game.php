@@ -85,11 +85,10 @@ $(document).ready(function() {
 	$("#cboxMiddleRight").hide();
 	$("#cboxTopCenter").hide();
 	$("#cboxBottomCenter").hide();
-	alert($(window).height());
 	scroll_control1	= ($(".game").height() + $(".close").height()) - $(window).height();
 	//$("#scroll_area").height($(".game").height());
 });
-
+/*
 $(window).scroll(function() {
 	if ($(window).scrollTop() > scroll_control1)
 	{
@@ -98,5 +97,5 @@ $(window).scroll(function() {
 		$("body").unbind('touchmove'); //스크롤 시작
 	}
 });
-
+*/
 </script>
