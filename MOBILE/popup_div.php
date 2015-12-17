@@ -64,14 +64,42 @@
 <!----------------- 유의 사항 팝업 ----------------->
 
 <!----------------- 게임 오답 팝업 ----------------->
-<div id="wrong_popup" class="popup_wrap" style="background:white;">
-  지금 찾은 사람은 빌리가 아니에요!
+<div id="wrong_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="img_pic">
+          <img src="images/popup/img_nobilly.png" />
+        </div>
+        <div class="btn_go clearfix">
+          <a href="game.php"><img src="images/popup/btn_again.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
 </div>
 <!----------------- 게임 오답 팝업 ----------------->
 
 <!----------------- 게임 타임오버 팝업 ----------------->
-<div id="timeover_popup" class="popup_wrap" style="background:white;">
-  빌리는 벌써 도망쳤어요!
+<div id="timeover_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="game.php" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="img_pic">
+          <img src="images/popup/img_againbilly.png" />
+        </div>
+        <div class="btn_go clearfix">
+          <a href="game.php"><img src="images/popup/btn_again.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
 </div>
 <!----------------- 게임 타임오버 팝업 ----------------->
 

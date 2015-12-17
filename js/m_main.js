@@ -86,11 +86,14 @@ function right_answer(param)
 {
 	if (param == "1")
 	{
-		$("#game2_div").hide();
-		$("#game3_div").show();
+		$("#game2_div").fadeOut(100,function(){
+			$("#game3_div").fadeIn(100);
+		});
+		$("#step_image").attr("src","images/step_2.png");
 	}else if (param == "2"){
 		$("#game3_div").hide();
 		$("#game4_div").show();
+		$("#step_image").attr("src","images/step_3.png");
 	}else if (param == "3"){
 		$("#game4_div").hide();
 		$("#game5_div").show();
