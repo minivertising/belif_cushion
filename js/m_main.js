@@ -246,3 +246,19 @@ $(document).on("click", "#m_menu_close", function(){
 	$(".sec_top").show();
 });
 
+$(document).on("click", "#m_event_show", function(){
+	$("html").removeClass("gnbOpen");
+	$(".sec_top").show();
+});
+
+function move_page(param)
+{
+	if (param == "product")
+	{
+		var product_area	= $(document).height() * 0.4;
+
+		$("html").removeClass("gnbOpen");
+		$(".sec_top").show();
+		$( 'html, body' ).animate({ scrollTop: product_area},500);
+	}
+}

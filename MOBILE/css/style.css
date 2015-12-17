@@ -562,7 +562,22 @@ body{
 .popup_wrap .p_position.big .block_content .inner .img_pic img{
 	width:100%;
 }
+.popup_wrap .p_position.big .block_content .inner .img_agree,
+.popup_wrap .p_position.big .block_content .inner .img_agree img{
+	width:100%; padding-top: 15px;
+}
+.popup_wrap .p_position.big .block_content .inner .btn_go{
+	width:100%; 
+	padding-top:15px;
+}
+.popup_wrap .p_position.big .block_content .inner .btn_go a{
+	width:50%;
+	display:block; padding-left:73px;
+}
 
+.popup_wrap .p_position.big .block_content .inner .btn_go a img{
+	width:100%;
+}
 
 
 .popup_wrap .p_position.aleardy .block_content .inner{

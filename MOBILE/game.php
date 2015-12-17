@@ -15,7 +15,7 @@
       </div>
       <div class="bar">
         <div class="inner_bar">
-          <div class="blue">
+          <div class="blue" style="width:0%">
           </div>
         </div>
       </div>

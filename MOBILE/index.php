@@ -28,23 +28,23 @@
   </div>
   <div class="pop_btn_menu">
     <div>
-      <a href="#"><img src="images/title_pop_menu.jpg" alt=""/></a>
+      <a href="#" id="m_event_show"><img src="images/title_pop_menu.jpg" alt=""/></a>
     </div>
     <div>
-      <a href="#"><img src="images/btn_product.jpg" alt=""/></a>
+      <a href="#" onclick="move_page('product');return false;"><img src="images/btn_product.jpg" alt=""/></a>
     </div>
     <div>
       <a href="#" onclick="open_pop('gift_popup');"><img src="images/btn_gift.jpg" alt=""/></a>
     </div>
     <div>
-      <a href="#"><img src="images/btn_howto.jpg" alt=""/></a>
+      <a href="#" onclick="open_pop('use_popup');"><img src="images/btn_howto.jpg" alt=""/></a>
     </div>
     <div class="btn_out clearfix">
-      <a href="#"><img src="images/btn_event_notice.png" alt=""/></a>
+      <a href="#" onclick="open_pop('notice_popup');"><img src="images/btn_event_notice.png" alt=""/></a>
       <a href="#"><img src="images/btn_shop.png" alt=""/></a>
     </div>
     <div>
-      <a href="#"><img src="images/btn_kt_friends.jpg" alt=""/></a>
+      <a href="http://plus.kakao.com/home/@빌리프" target="_blank"><img src="images/btn_kt_friends.jpg" alt=""/></a>
     </div>
     <div class="btn_sns_block">
       <div class="inner_btn_sns_block clearfix">
@@ -87,6 +87,7 @@ $(document).ready(function() {
 	$("#cboxMiddleRight").hide();
 	$("#cboxTopCenter").hide();
 	$("#cboxBottomCenter").hide();
+
 });
 
 </script>
