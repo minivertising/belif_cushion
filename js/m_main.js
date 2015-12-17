@@ -47,7 +47,9 @@ function open_pop(param)
 	}});
 }
 
-var count = 2600;
+var count = 26;
+var gage_per	= 0;
+var gage_num	= 0;
 
 function start_game()
 {
@@ -59,9 +61,10 @@ function start_game()
 }
 
 var counter = null;
+
 function time_control()
 {
-	counter = setInterval(timer, 10); //10 will  run it every 100th of a second
+	counter = setInterval(timer, 1000); //10 will  run it every 100th of a second
 
 	function timer()
 	{
@@ -72,7 +75,10 @@ function time_control()
 			return;
 		}
 		count--;
-		document.getElementById("timer").innerHTML=count /100+ " secs"; 
+		gage_num++;
+		gage_per	= (gage_num / 26)*100;
+		$(".time").html(count+"<span>초</span>");
+		$(".blue").css("width",gage_per+"%");
 	}
 }
 

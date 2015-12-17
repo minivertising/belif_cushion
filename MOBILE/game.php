@@ -21,14 +21,14 @@
       </div>
 
       <!--첫번째 그림시작-->
-      <div class="game_img start">
+      <div class="game_img start" id="game1_div">
         <div class="bg">
-          <a href="#"><img src="images/game_img_1_1.png" alt=""/></a>
+          <a href="#" onclick="start_game();return false;"><img src="images/game_img_1_1.png" alt=""/></a>
         </div>
       </div>
 
       <!--첫번째 그림찾기-->
-      <div class="game_img after" style="display:none;">
+      <div class="game_img after" id="game2_div" style="display:none;">
         <div class="btn_billy step_1">
           <a href="#">빌리</a>
         </div>
