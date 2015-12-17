@@ -14,15 +14,15 @@
 	if($gubun == "MOBILE")
 	{
 		if ($tab)
-			Header("Location:http://awards.babience-event.com/MOBILE/index.php?tab=".$tab."");
+			Header("Location:http://www.belif-factory.com/MOBILE/index.php?tab=".$tab."");
 		else
-			Header("Location:http://awards.babience-event.com/MOBILE/index.php");
+			Header("Location:http://www.belif-factory.com/MOBILE/index.php");
 		exit;
 	}else{
 		if ($tab)
-			Header("Location:http://awards.babience-event.com/PC/index.php?tab=".$tab."");
+			Header("Location:http://www.belif-factory.com/PC/index.php?tab=".$tab."");
 		else
-			Header("Location:http://awards.babience-event.com/PC/index.php");
+			Header("Location:http://www.belif-factory.com/PC/index.php");
 		exit;
 	}
 
