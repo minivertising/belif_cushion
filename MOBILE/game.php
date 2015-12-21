@@ -67,7 +67,7 @@
     <div class="input_info" id="game5_div" style="display:none;">
       <div class="inner_input_info">
         <div class="input"><input type="text" id="mb_name"></div>
-        <div class="input phone"><input type="text" id="mb_phone" placeholder="숫자만 입력하세요" onkeyup="only_num(this);return false;"></div>
+        <div class="input phone"><input type="tel" id="mb_phone" placeholder="숫자만 입력하세요" onkeyup="only_num(this);chk_len3(this.value);return false;"></div>
         <div class="select_area">
           <select id="mb_addr" onchange="change_addr(this)">
             <option value="">선택하세요</option>

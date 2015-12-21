@@ -39,7 +39,7 @@
 
 <div class="sec_top">
   <div class="inner_sec_top clearfix">
-    <div class="logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+    <div class="logo"><a href="index.php"><img src="images/logo.png" alt=""/></a></div>
     <!-- <div class="menu"><a href="#" onclick="show_menu();return false;"><img src="images/menu_ham.png" width="95" alt=""/></a></div> -->
     <div class="menu gnbBtn"><a href="#"><img src="images/menu_ham.png" width="95" alt=""/></a></div>
   </div>

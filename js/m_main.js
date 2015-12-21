@@ -261,6 +261,14 @@ function chk_len2(val)
 	}
 }
 
+function chk_len3(val)
+{
+	if (val.length == 11)
+	{
+		$("#mb_phone").blur();
+	}
+}
+
 // gnb
 $(document).on("click", ".gnbBtn", function(){
 	$("html").addClass("gnbOpen");
