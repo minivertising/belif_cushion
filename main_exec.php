@@ -23,6 +23,7 @@ switch ($_REQUEST['exec'])
 	case "insert_info" :
 		$mb_name			= $_REQUEST['mb_name'];
 		$mb_phone			= $_REQUEST['mb_phone'];
+		$mb_shop			= $_REQUEST['mb_shop'];
 		$media				= $_SESSION['ss_media'];
 
 		$dupli_query 	= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_phone='".$mb_phone."'";
@@ -34,7 +35,7 @@ switch ($_REQUEST['exec'])
 			$flag	= "D";
 		}else{
 			$serial	= BC_getSerial();
-			$query 	= "INSERT INTO ".$_gl['member_info_table']."(mb_ipaddr,mb_name,mb_phone,mb_regdate,mb_serial,mb_gubun,mb_media) values('".$_SERVER['REMOTE_ADDR']."','".$mb_name."','".$mb_phone."','".date("Y-m-d H:i:s")."','".$serial."','".$gubun."','".$media."')";
+			$query 	= "INSERT INTO ".$_gl['member_info_table']."(mb_ipaddr,mb_name,mb_phone,mb_shop,mb_regdate,mb_serial,mb_gubun,mb_media) values('".$_SERVER['REMOTE_ADDR']."','".$mb_name."','".$mb_phone."','".$mb_shop."','".date("Y-m-d H:i:s")."','".$serial."','".$gubun."','".$media."')";
 			$result 	= mysqli_query($my_db, $query);
 			send_lms($mb_phone);
 			if ($result)

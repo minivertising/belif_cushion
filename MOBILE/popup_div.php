@@ -9,7 +9,7 @@
       <div class="inner">
         <div class="btn_tap_menu clearfix">
           <a href="#"><img src="images/popup/btn_gift_on.png" /></a>
-          <a href="#"><img src="images/popup/btn_notice_off.png" /></a>
+          <a href="#" onclick="open_pop('notice_popup');"><img src="images/popup/btn_notice_off.png" /></a>
         </div>
         <div class="img_pic">
           <img src="images/popup/img_cushion.jpg" />
@@ -51,7 +51,7 @@
     <div class="block_content view_pic">
       <div class="inner">
         <div class="btn_tap_menu clearfix">
-          <a href="#"><img src="images/popup/btn_gift_off.png" /></a>
+          <a href="#" onclick="open_pop('gift_popup');"><img src="images/popup/btn_gift_off.png" /></a>
           <a href="#"><img src="images/popup/btn_notice_on.png" /></a>
         </div>
         <div class="img_pic">

@@ -119,9 +119,20 @@ body{
 
 .sec_sub_coupon .coupon{
 	position:absolute;
-	bottom:15%; 
+	bottom:13%; 
 }
 
+.sec_sub_coupon{
+	float:right;
+	font-size:17px;
+	font-weight:bold;
+	line-height:28px;
+}
+.sec_sub_coupon .coupon_text{
+	position:absolute;
+	bottom:35%; 
+	left:52%;
+}
 
 @media screen and (min-device-width: 321px) and (max-device-width: 375px) {
 	.wrap_game_bg{

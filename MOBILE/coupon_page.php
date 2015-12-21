@@ -1,48 +1,32 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-content="width=device-width, user-scalable=yes,
-initial-scale=1.0, maximum-scale=3.0"/>
-<link rel="shortcut icon" type="image/x-icon" href="./img/icon/favicon.ico" />
-<title>모바일 서브 게임</title>
-<!--[if lt IE 9]><script src="./js/html5shiv.js"></script><![endif]-->
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+<?
+	include_once   "./header.php";
+	$mb_phone	= $_REQUEST['mid'];
 
-</head>
+	$mb_query		= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_phone='".$mb_phone."'";
+	$mb_result		= mysqli_query($my_db, $mb_query);
+	$mb_data		= mysqli_fetch_array($mb_result);
 
+	if (!$mb_data)
+	{
+		print_r("고객님의 쿠폰 정보가 없습니다.");
+		exit;
+	}
+	$shop_query		= "SELECT * FROM ".$_gl['shop_info_table']." WHERE idx='".$mb_data['mb_shop']."'";
+	$shop_result		= mysqli_query($my_db, $shop_query);
+	$shop_data		= mysqli_fetch_array($shop_result);
+
+?>
 <body>
-    
-   
- 	<div class="sec_top">
-    	<div class="inner_sec_top clearfix">
-	        <div class="logo"><a href="#"><img src="images/logo.png" alt=""/></a></div>
-	        <div class="menu"><a href="#"><img src="images/menu_ham.png" width="95" alt=""/></a></div>
-            
-        </div>
-    </div>
-     
-    <div class="sec_sub_coupon">
-    	
-    	<div class="thanks bg">
-        	<a href="#"><img src="images/img_coupon.png" alt=""/></a>
-        </div>
-        <div class="coupon bg">
-        	<a href="#"><img src="images/btn_coupon.png" alt=""/></a>
-        </div>
-    	<div class="bg"><img src="images/bg_coupon.jpg" alt=""/></div>
-    </div>
-    
-
-
-
-
- 
- 
- 
-    
-    
+<div class="sec_sub_coupon">
+  <div class="thanks bg">
+    <img src="images/img_coupon.png" alt=""/>
+    <img src="images/coupon_text.png" alt=""/>
+  </div>
+  <div class="coupon_text"><?=$shop_data['shop_name']?></div>
+  <div class="coupon bg">
+    <a href="#"><img src="images/btn_coupon.png" alt=""/></a>
+  </div>
+  <div class="bg"><img src="images/bg_coupon.jpg" alt=""/></div>
+</div>
 </body>
 </html>
