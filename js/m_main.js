@@ -344,7 +344,7 @@ function sns_share(media, flag)
 		  //container: '#kakao-link-btn',
 		  label: "빌리를 찾으면 수분 폭탄 쿠션이 내게로",
 		  image: {
-			src: 'http://www.belif-factory.com/MOBILE/images/sns.jpg',
+			src: 'http://www.belif-factory.com/MOBILE/images/belif_billy_share.jpg',
 			width: '1200',
 			height: '630'
 		  },
