@@ -106,6 +106,21 @@ body{
 	background:url(../images/bg_2.jpg) no-repeat 0 865px;
 	background-size:contain;
 }
+.sec_sub_coupon{
+	width:100%;
+	position:relative;
+	margin-top:0;
+}
+
+.sec_sub_coupon .thanks{
+	position:absolute;
+	bottom:25%; 
+}
+
+.sec_sub_coupon .coupon{
+	position:absolute;
+	bottom:15%; 
+}
 
 
 @media screen and (min-device-width: 321px) and (max-device-width: 375px) {

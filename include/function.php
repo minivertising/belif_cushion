@@ -133,38 +133,29 @@
 		global $_gl;
 		global $my_db;
 
-		$s_url		= "http://www.belif-moisture-cushion.com/MOBILE/coupon_page.php?mid=".$phone;
+		$s_url		= "http://www.belif-factory.com/MOBILE/coupon_page.php?mid=".$phone;
 		$httpmethod = "POST";
 		$url = "http://api.openapi.io/ppurio/1/message/lms/minivertising";
 		$clientKey = "MTAyMC0xMzg3MzUwNzE3NTQ3LWNlMTU4OTRiLTc4MGItNDQ4MS05NTg5LTRiNzgwYjM0ODEyYw==";
 		$contentType = "Content-Type: application/x-www-form-urlencoded";
 
-		$query = "SELECT * FROM sms_info WHERE send_phone='".$phone."'";
-		$result 		= mysqli_query($my_db, $query);
-		$dupli_num	= mysqli_num_rows($result);
+		$response = sendRequest($httpmethod, $url, $clientKey, $contentType, $phone, $s_url);
 
-		if ($dupli_num == 0)
-		{
-			$response = sendRequest($httpmethod, $url, $clientKey, $contentType, $phone, $s_url);
+		$json_data = json_decode($response, true);
 
-			$json_data = json_decode($response, true);
+		/*
+		받아온 결과값을 DB에 저장 및 Variation
+		*/
+		$query3 = "INSERT INTO sms_info(send_phone, send_status, cmid, send_regdate) values('".$phone."','".$json_data['result_code']."','".$json_data['cmid']."','".date("Y-m-d H:i:s")."')";
+		$result3 		= mysqli_query($my_db, $query3);
 
-			/*
-			받아온 결과값을 DB에 저장 및 Variation
-			*/
-			$query3 = "INSERT INTO sms_info(send_phone, send_status, cmid, send_regdate) values('".$phone."','".$json_data['result_code']."','".$json_data['cmid']."','".date("Y-m-d H:i:s")."')";
-			$result3 		= mysqli_query($my_db, $query3);
+		$query2 = "UPDATE member_info SET mb_lms='Y' WHERE mb_phone='".$phone."'";
+		$result2 		= mysqli_query($my_db, $query2);
 
-			$query2 = "UPDATE member_info SET mb_lms='Y' WHERE mb_phone='".$phone."'";
-			$result2 		= mysqli_query($my_db, $query2);
-
-			if ($json_data['result_code'] == "200")
-				$flag = "Y";
-			else
-				$flag = "N";
-		}else{
-			$flag	= "N";
-		}
+		if ($json_data['result_code'] == "200")
+			$flag = "Y";
+		else
+			$flag = "N";
 
 		return $flag;
 	}
@@ -189,7 +180,7 @@
 수분 폭탄 공장에서 빌리를 모두 찾으셨군요. 선택하신 빌리프 매장에 방문해 아래의 링크를 눌러 쿠폰을 보여주시면, 빌리프의 촉촉 화사한 수분 폭탄 쿠션 한정판 미니어처를 드립니다.
 
 빌리프 수분 폭탄 쿠션 쿠폰 사용하기: 
-http://www.belifmoisturefactorycom/MOBILE/coupon_page.php?mid=01044777723
+".$s_url."
 
 ▶ 수령 기간
 2015년 12월 00일~12월 00일
