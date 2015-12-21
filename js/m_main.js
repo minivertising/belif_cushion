@@ -104,8 +104,8 @@ function right_answer(param)
 		});
 		$("#step_image").attr("src","images/step_3.png");
 	}else if (param == "3"){
-		$("#game3_circle").fadeIn(200,function(){
-			$("#game3_circle").fadeOut(100,function(){
+		$("#game4_circle").fadeIn(200,function(){
+			$("#game4_circle").fadeOut(100,function(){
 				$("#game5_div").show();
 				$("#game6_div").show();
 				clearInterval(counter);

@@ -13,16 +13,10 @@
 
 	if($gubun == "MOBILE")
 	{
-		if ($tab)
-			Header("Location:http://www.belif-factory.com/MOBILE/index.php?tab=".$tab."");
-		else
-			Header("Location:http://www.belif-factory.com/MOBILE/index.php");
+		Header("Location:http://www.belif-factory.com/MOBILE/index.php?media=".$media."");
 		exit;
 	}else{
-		if ($tab)
-			Header("Location:http://www.belif-factory.com/PC/index.php?tab=".$tab."");
-		else
-			Header("Location:http://www.belif-factory.com/PC/index.php");
+		Header("Location:http://www.belif-factory.com/PC/index.php?media=".$media."");
 		exit;
 	}
 
