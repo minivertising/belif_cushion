@@ -24,7 +24,7 @@
   </div>
   <div class="coupon_text"><?=$shop_data['shop_name']?></div>
   <div class="coupon bg">
-    <a href="#"><img src="images/btn_coupon.png" alt=""/></a>
+    <a href="#" onclick="use_coupon('<?=$mb_phone?>');return false;"><img src="images/btn_coupon.png" alt=""/></a>
   </div>
   <div class="bg"><img src="images/bg_coupon.jpg" alt=""/></div>
 </div>

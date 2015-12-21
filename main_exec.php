@@ -49,7 +49,7 @@ switch ($_REQUEST['exec'])
 	case "use_coupon" :
 		$mb_phone			= $_REQUEST['mb_phone'];
 
-		$query 	= "UPDATE ".$_gl['member_info_table']." SET mb_use='Y' WHERE mb_phone='".$mb_phone."'";
+		$query 	= "UPDATE ".$_gl['member_info_table']." SET mb_use='Y', mb_usedate='".date("Y-m-d H:i:s")."' WHERE mb_phone='".$mb_phone."'";
 		$result 	= mysqli_query($my_db, $query);
 
 		if ($result)

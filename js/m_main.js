@@ -372,3 +372,28 @@ function sns_share(media, flag)
 		});
 	}
 }
+
+function use_coupon(param)
+{
+	if (confirm("쿠폰을 사용하시겠습니까?"))
+	{
+		$.ajax({
+			type:"POST",
+			data:{
+				"exec"				: "use_coupon",
+				"mb_phone"		: param
+			},
+			url: "../main_exec.php",
+			success: function(response){
+				if (response == "Y")
+				{
+					alert('쿠폰이 사용처리되었습니다. 감사합니다.');
+					location.reload();
+				}else{
+					alert('사용자가 많아 처리가 지연되고 있습니다. 잠시후 다시 시도해 주세요.');
+				}
+			}
+		});
+	}
+
+}
