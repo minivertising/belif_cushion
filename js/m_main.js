@@ -199,7 +199,6 @@ function ins_info()
 		},
 		url: "../main_exec.php",
 		success: function(response){
-			alert(response);
 			if (response == "Y")
 			{
 				//open_pop("complete_popup");
