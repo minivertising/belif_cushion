@@ -31,6 +31,9 @@
           <div class="btn_billy step_1" onclick="right_answer('1');">
             <a href="#">빌리</a>
           </div>
+          <div id="game2_circle" style="position:absolute;top:66%;left:22%;display:none;">
+            <img src="images/right_circle.png" style="width:45px;height:45px;"/>
+          </div>
           <div class="bg" onclick="open_pop('wrong_popup');">
             <img src="images/game_img_1_2.png" alt=""/>
           </div>
@@ -40,6 +43,9 @@
           <div class="btn_billy step_1" onclick="right_answer('2');">
             <a href="#">빌리</a>
           </div>
+          <div id="game3_circle" style="position:absolute;top:66%;left:22%;display:none;">
+            <img src="images/right_circle.png" style="width:45px;height:45px;"/>
+          </div>
           <div class="bg" onclick="open_pop('wrong_popup');">
             <img src="images/game_img_1_2.png" alt=""/>
           </div>
@@ -48,6 +54,9 @@
         <div class="game_img after" id="game4_div" style="display:none;">
           <div class="btn_billy step_1" onclick="right_answer('3');">
             <a href="#">빌리</a>
+          </div>
+          <div id="game4_circle" style="position:absolute;top:66%;left:22%;display:none;">
+            <img src="images/right_circle.png" style="width:45px;height:45px;"/>
           </div>
           <div class="bg" onclick="open_pop('wrong_popup');">
             <img src="images/game_img_1_2.png" alt=""/>

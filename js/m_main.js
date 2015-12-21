@@ -86,24 +86,46 @@ function right_answer(param)
 {
 	if (param == "1")
 	{
-		$("#game2_div").fadeOut(100,function(){
-			$("#game3_div").fadeIn(100);
+		$("#game2_circle").fadeIn(200,function(){
+			$("#game2_circle").fadeOut(100,function(){
+				$("#game2_div").fadeOut(100,function(){
+					$("#game3_div").fadeIn(100);
+				});
+			});
 		});
 		$("#step_image").attr("src","images/step_2.png");
 	}else if (param == "2"){
-		$("#game3_div").fadeOut(100,function(){
-			$("#game4_div").fadeIn(100);
+		$("#game3_circle").fadeIn(200,function(){
+			$("#game3_circle").fadeOut(100,function(){
+				$("#game3_div").fadeOut(100,function(){
+					$("#game4_div").fadeIn(100);
+				});
+			});
 		});
 		$("#step_image").attr("src","images/step_3.png");
 	}else if (param == "3"){
-		$("#game5_div").show();
-		clearInterval(counter);
-		$( 'html, body' ).animate({ scrollTop: $("#game4_div").height()},500,function(){
-			$("#game4_div").hide();
-			$("#step_div").hide();
-			$("#sec_div").hide();
-			$("#bar_div").hide();
-			$(".close").hide();
+		$("#game3_circle").fadeIn(200,function(){
+			$("#game3_circle").fadeOut(100,function(){
+				$("#game5_div").show();
+				$("#game6_div").show();
+				clearInterval(counter);
+				$( 'html, body' ).animate({ scrollTop: $("#game4_div").height() + $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height()},500,function(){
+					var device_height	= $(window).height();
+
+					//if (device_height > $("#game5_div").height())
+					//{
+						//var ex_height	= (device_height - $("#game5_div").height())/2;
+						//$("#game5_div").css("margin-top",ex_height+"px");
+						//$("#game5_div").css("margin-bottom",ex_height+"px");
+					//}
+					//$("#game4_div").hide();
+					//$("#step_div").hide();
+					//$("#sec_div").hide();
+					//$("#bar_div").hide();
+					//$(".close").hide();
+					$("body").css("overflow","hidden");
+				});
+			});
 		});
 
 	}
@@ -182,8 +204,10 @@ function ins_info()
 			{
 				//open_pop("complete_popup");
 				$("#game6_div").show();
-				$( 'html, body' ).animate({ scrollTop: $("#game5_div").height()},500,function(){
-					$("#game5_div").hide();
+				var move_height	= $("#game4_div").height() + $("#game5_div").height()+ $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height();
+				$( 'html, body' ).animate({ scrollTop: "2200"},1500,function(){
+					//$("#game5_div").hide();
+					//$("body").css("overflow","auto");
 				});
 			}else{
 				open_pop("duplicate_popup");

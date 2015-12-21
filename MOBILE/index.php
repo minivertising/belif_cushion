@@ -28,7 +28,7 @@
   </div>
   <div class="pop_btn_menu">
     <div>
-      <a href="#" id="m_event_show"><img src="images/title_pop_menu.jpg" alt=""/></a>
+      <a href="game.php" id="m_event_show"><img src="images/title_pop_menu.jpg" alt=""/></a>
     </div>
     <div>
       <a href="#" onclick="move_page('product');return false;"><img src="images/btn_product.jpg" alt=""/></a>
@@ -87,6 +87,7 @@ $(document).ready(function() {
 	$("#cboxMiddleRight").hide();
 	$("#cboxTopCenter").hide();
 	$("#cboxBottomCenter").hide();
+
 
 });
 
