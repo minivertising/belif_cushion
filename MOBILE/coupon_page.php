@@ -17,16 +17,32 @@
 
 ?>
 <body>
-<div class="sec_sub_coupon">
-  <div class="thanks bg">
-    <img src="images/img_coupon.png" alt=""/>
-    <img src="images/coupon_text.png" alt=""/>
-  </div>
-  <div class="coupon_text"><?=$shop_data['shop_name']?></div>
-  <div class="coupon bg">
-    <a href="#" onclick="use_coupon('<?=$mb_phone?>');return false;"><img src="images/btn_coupon.png" alt=""/></a>
-  </div>
-  <div class="bg"><img src="images/bg_coupon.jpg" alt=""/></div>
-</div>
+
+    <div class="sec_sub_coupon">
+    	
+    	<div class="thanks bg">
+        	<img src="images/img_coupon.png" alt=""/>
+        </div>
+        <div class="coupon_text">
+            <p>교환 가능 매장 : <?=$shop_data['shop_name']?></p>
+            <p>기간 : 12월 00일 ~ 12월 00일</p>
+            <p>* 본 쿠폰은 1인 1매 사용 가능합니다.</p>
+        </div>
+        <div class="coupon bg">
+<?
+	if ($mb_data['mb_use'] == "N")
+	{
+?>
+        	<a href="#" onclick="use_coupon('<?=$mb_phone?>');return false;"><img src="images/btn_coupon.png" alt=""/></a>
+<?
+	}else{
+?>
+        	<a href="#"><img src="images/btn_coupon_02.png" alt=""/></a>
+<?
+	}
+?>
+        </div>
+    	<div class="bg"><img src="images/bg_coupon.jpg" alt=""/></div>
+    </div>
 </body>
 </html>
