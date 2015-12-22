@@ -110,8 +110,22 @@
 <!----------------- 게임 완료 팝업 ----------------->
 
 <!----------------- 중복 참여 팝업 ----------------->
-<div id="duplicate_popup" class="popup_wrap" style="background:white;">
-  이미 참여해 주셨습니다!
+<div id="duplicate_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="index.php" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="img_pic">
+          <img src="images/popup/img_billyend.png" />
+        </div>
+        <div class="btn_go clearfix">
+          <a href="index.php"><img src="images/popup/btn_end.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
 </div>
 <!----------------- 중복 참여 팝업 ----------------->
 
