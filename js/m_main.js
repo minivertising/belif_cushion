@@ -201,7 +201,6 @@ function ins_info()
 		success: function(response){
 			if (response == "Y")
 			{
-				//open_pop("complete_popup");
 				$("#game6_div").show();
 				var move_height	= $("#game4_div").height() + $("#game5_div").height()+ $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height();
 				$( 'html, body' ).animate({ scrollTop: "2200"},1500,function(){

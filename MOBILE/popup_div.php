@@ -103,12 +103,6 @@
 </div>
 <!----------------- 게임 타임오버 팝업 ----------------->
 
-<!----------------- 게임 완료 팝업 ----------------->
-<div id="complete_popup" class="popup_wrap" style="background:white;">
-  참여해 주셔서 감사합니다!
-</div>
-<!----------------- 게임 완료 팝업 ----------------->
-
 <!----------------- 중복 참여 팝업 ----------------->
 <div id="duplicate_popup" class="popup_wrap">
   <div class="p_mid p_position big">
