@@ -364,7 +364,7 @@ function sns_share(media, flag)
 		});
 	}else{
 		Kakao.Story.share({
-			url: 'http://www.belif-factory.com/?media=ks',
+			url: 'http://www.belif-factory.com/MOBILE/index.php?media=ks',
 			text: '[빌리프] 빌리의 수분 폭탄 공장\r\n\r\n빌리의 수분 폭탄 공장에 숨어 있는 빌리를 찾아주신분에게는 즉석당첨을 통해 수분 폭탄 쿠션 미니어처를 드립니다.'
 		});
 		$.ajax({
