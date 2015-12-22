@@ -47,7 +47,7 @@
             <img src="images/right_circle.png" style="width:45px;height:45px;"/>
           </div>
           <div class="bg" onclick="open_pop('wrong_popup');">
-            <img src="images/game_img_1_2.png" alt=""/>
+            <img src="images/game_img_2_2.png" alt=""/>
           </div>
         </div> 
         <!--세번째 그림찾기-->
@@ -59,7 +59,7 @@
             <img src="images/right_circle.png" style="width:45px;height:45px;"/>
           </div>
           <div class="bg" onclick="open_pop('wrong_popup');">
-            <img src="images/game_img_1_2.png" alt=""/>
+            <img src="images/game_img_3_2.png" alt=""/>
           </div>
         </div> 
       </div>
