@@ -295,7 +295,7 @@ body{
 
 
 .sec_sub_img .game .inner_game .game_img .btn_billy{
-	background:#fff;
+	/*background:#fff;*/
 	position:absolute;
 	display:block;
 	width:24px;
@@ -303,22 +303,22 @@ body{
 	text-indent:-999999px;
 }
 .sec_sub_img .game .inner_game .game_img .btn_billy.step_1{
-	background:#000;
+	/*background:#000;*/
 	position:absolute;
 	top:67%;
 	left:25%;
 }
 .sec_sub_img .game .inner_game .game_img .btn_billy.step_2{
-	background:#000;
+	/*background:#000;*/
 	position:absolute;
-	top:67%;
-	left:25%;
+	top:68%;
+	left:53%;
 }
 .sec_sub_img .game .inner_game .game_img .btn_billy.step_3{
-	background:#000;
+	/*background:#000;*/
 	position:absolute;
-	top:67%;
-	left:25%;
+	top:65%;
+	left:89%;
 }
 
 .sec_sub_img .input_info{

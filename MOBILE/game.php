@@ -40,10 +40,10 @@
         </div> 
         <!--두번째 그림찾기-->
         <div class="game_img after" id="game3_div" style="display:none;">
-          <div class="btn_billy step_1" onclick="right_answer('2');">
+          <div class="btn_billy step_2" onclick="right_answer('2');">
             <a href="#">빌리</a>
           </div>
-          <div id="game3_circle" style="position:absolute;top:66%;left:22%;display:none;">
+          <div id="game3_circle" style="position:absolute;top:67%;left:50%;display:none;">
             <img src="images/right_circle.png" style="width:45px;height:45px;"/>
           </div>
           <div class="bg" onclick="open_pop('wrong_popup');">
@@ -52,10 +52,10 @@
         </div> 
         <!--세번째 그림찾기-->
         <div class="game_img after" id="game4_div" style="display:none;">
-          <div class="btn_billy step_1" onclick="right_answer('3');">
+          <div class="btn_billy step_3" onclick="right_answer('3');">
             <a href="#">빌리</a>
           </div>
-          <div id="game4_circle" style="position:absolute;top:66%;left:22%;display:none;">
+          <div id="game4_circle" style="position:absolute;top:64%;left:86%;display:none;">
             <img src="images/right_circle.png" style="width:45px;height:45px;"/>
           </div>
           <div class="bg" onclick="open_pop('wrong_popup');">
