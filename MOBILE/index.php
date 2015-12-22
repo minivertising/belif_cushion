@@ -21,7 +21,7 @@
     </div>
     <div class="btn_out clearfix">
       <a href="#" onclick="open_pop('notice_popup');"><img src="images/btn_event_notice.png" alt=""/></a>
-      <a href="#"><img src="images/btn_shop.png" alt=""/></a>
+      <a href="http://m.lotte.com/product/m/product_view.do?goods_no=182036536" target="_blank"><img src="images/btn_shop.png" alt=""/></a>
     </div>
     <div>
       <a href="http://plus.kakao.com/home/@빌리프" target="_blank"><img src="images/btn_kt_friends.jpg" alt=""/></a>
