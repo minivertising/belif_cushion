@@ -110,7 +110,7 @@ function right_answer(param)
 		$("#game4_circle").fadeIn(200,function(){
 			$("#game4_circle").fadeOut(100,function(){
 				$("#game5_div").show();
-				//$("#game6_div").show();
+				$("#game6_div").show();
 				clearInterval(counter);
 				$( 'html, body' ).animate({ scrollTop: $("#game4_div").height() + $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height()},500,function(){
 					//var device_height	= $(window).height();
