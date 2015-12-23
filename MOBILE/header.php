@@ -18,7 +18,7 @@
     <meta property="og:description" content="숨어있는 빌리 찾고 선물받자!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="./images/fabicon.ico" />
-<title>Babience Awards</title>
+<title>Belif Factory</title>
 <!--[if lt IE 9]><script src="./js/html5shiv.js"></script><![endif]-->
 <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../lib/colorbox/colorbox.css">
