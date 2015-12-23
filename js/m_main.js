@@ -39,11 +39,14 @@ function open_pop(param)
 		$('#cboxWrapper').css('backgroundColor', "");
 		$('#cboxLoadedContent').css('backgroundColor', "");
 		$("#colorbox").width($("body").width());
+		//$("body").height($("#"+param).height());
 		$("#cboxWrapper").width($("body").width());
+		$(".sec_main_img").hide();
 	},
 	onClosed: function(){
 		//del_info();
 		$("#cboxContent").css("background","#fff");
+		$(".sec_main_img").show();
 	}});
 }
 
