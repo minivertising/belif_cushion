@@ -123,7 +123,8 @@ function right_answer(param)
 					//$("#sec_div").hide();
 					//$("#bar_div").hide();
 					//$(".close").hide();
-					$("body").css("overflow","hidden");
+					//$("body").css("overflow","hidden");
+					$('body').bind('touchmove', function(e){e.preventDefault()});
 				});
 			});
 		});

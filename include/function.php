@@ -170,7 +170,7 @@
 			'send_time' => '', 
 			'send_phone' => '07048881164', 
 			'dest_phone' => $phone, 
-			//'dest_phone' => '010-9901-7644',
+			//'dest_phone' => '01099017644',
 			'send_name' => '', 
 			'dest_name' => '', 
 			'subject' => '빌리프 수분 폭탄 공장에서 알림',
