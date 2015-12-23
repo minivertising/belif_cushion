@@ -1,6 +1,9 @@
 <?
 	include_once   "./header.php";
 ?>
+<script type='text/javascript'>
+document.ontouchmove = function(e){ e.preventDefault(); } 
+</script> 
 <body>
 <div class="wrap_game_bg">
   <div class="sec_sub_img">
