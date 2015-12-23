@@ -34,7 +34,7 @@ function show_menu()
 
 function open_pop(param)
 {
-	$.colorbox({innerWidth:"100%", initialWidth:"95%", inline:true, opacity:"0.9", scrolling:true, transition:"none",closeButton:false, overlayClose: false, open:true, speed:0, fadeOut: 300, href:"#"+param, onComplete: function(){
+	$.colorbox({innerWidth:"100%", initialWidth:"95%", inline:true, opacity:"0.9", scrolling:true, reposition: false,closeButton:false, overlayClose: false, open:true, speed:0, fadeOut: 300, href:"#"+param, onComplete: function(){
 		$("#cboxContent").css("background","none");
 		$('#cboxWrapper').css('backgroundColor', "");
 		$('#cboxLoadedContent').css('backgroundColor', "");
