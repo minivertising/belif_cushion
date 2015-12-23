@@ -275,10 +275,12 @@ function chk_len3(val)
 $(document).on("click", ".gnbBtn", function(){
 	$("html").addClass("gnbOpen");
 	$(".sec_top").hide();
+	$(".sec_main_img").hide();
 });
 $(document).on("click", "#m_menu_close", function(){
 	$("html").removeClass("gnbOpen");
 	$(".sec_top").show();
+	$(".sec_main_img").show();
 });
 
 $(document).on("click", "#m_event_show", function(){
