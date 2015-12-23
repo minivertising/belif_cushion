@@ -110,7 +110,7 @@ function right_answer(param)
 				$("#game6_div").show();
 				clearInterval(counter);
 				$( 'html, body' ).animate({ scrollTop: $("#game4_div").height() + $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height()},500,function(){
-					var device_height	= $(window).height();
+					//var device_height	= $(window).height();
 
 					//if (device_height > $("#game5_div").height())
 					//{
