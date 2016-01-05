@@ -1,5 +1,5 @@
 <?
-	include_once   "./header.php";
+	include_once   "./header.belif";
 ?>
 <body>
 <div id="mobile_menu" class="wrap_pop_menu mobile_menu">
@@ -8,7 +8,7 @@
   </div>
   <div class="pop_btn_menu">
     <div>
-      <a href="game.php" id="m_event_show"><img src="images/title_pop_menu.jpg" alt=""/></a>
+      <a href="game.belif" id="m_event_show"><img src="images/title_pop_menu.jpg" alt=""/></a>
     </div>
     <div>
       <a href="#" onclick="move_page('product');return false;"><img src="images/btn_product.jpg" alt=""/></a>
@@ -39,19 +39,19 @@
 
 <div class="sec_top">
   <div class="inner_sec_top clearfix">
-    <div class="logo"><a href="index.php"><img src="images/logo.png" alt=""/></a></div>
+    <div class="logo"><a href="index.belif"><img src="images/logo.png" alt=""/></a></div>
     <!-- <div class="menu"><a href="#" onclick="show_menu();return false;"><img src="images/menu_ham.png" width="95" alt=""/></a></div> -->
     <div class="menu gnbBtn"><a href="#"><img src="images/menu_ham.png" width="95" alt=""/></a></div>
   </div>
 </div>
 
 <div class="sec_main_img">
-  <a href="game.php" class="btn_sear"><img src="images/btn_sear_billy.png" alt=""/></a>
+  <a href="game.belif" class="btn_sear"><img src="images/btn_sear_billy.png" alt=""/></a>
   <div class="bg"><img src="images/bg_main_img.jpg" alt=""/></div>
 </div>
 
 <?
-	include_once   "./popup_div.php";
+	include_once   "./popup_div.belif";
 ?>
 <div class="mask"></div>
 </body>

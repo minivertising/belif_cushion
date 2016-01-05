@@ -87,7 +87,7 @@
 <div id="timeover_popup" class="popup_wrap">
   <div class="p_mid p_position big">
     <div class="block_close clearfix">
-      <a href="game.php" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+      <a href="game.belif" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content view_pic">
       <div class="inner">
@@ -95,7 +95,7 @@
           <img src="images/popup/img_againbilly.png" />
         </div>
         <div class="btn_go clearfix">
-          <a href="game.php"><img src="images/popup/btn_again.png" /></a>
+          <a href="game.belif"><img src="images/popup/btn_again.png" /></a>
         </div>
       </div><!--inner-->
     </div>
@@ -107,7 +107,7 @@
 <div id="duplicate_popup" class="popup_wrap">
   <div class="p_mid p_position big">
     <div class="block_close clearfix">
-      <a href="index.php" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+      <a href="index.belif" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content view_pic">
       <div class="inner">
@@ -115,7 +115,7 @@
           <img src="images/popup/img_billyend.png" />
         </div>
         <div class="btn_go clearfix">
-          <a href="index.php"><img src="images/popup/btn_end.png" /></a>
+          <a href="index.belif"><img src="images/popup/btn_end.png" /></a>
         </div>
       </div><!--inner-->
     </div>

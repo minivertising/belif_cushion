@@ -1,10 +1,10 @@
 <?
-	include_once   "./header.php";
+	include_once   "./header.belif";
 ?>
 <body>
 <div class="wrap_game_bg">
   <div class="sec_sub_img">
-    <div class="close"><a href="index.php"><img src="images/btn_close.png" width="35" alt=""/></a></div>
+    <div class="close"><a href="index.belif"><img src="images/btn_close.png" width="35" alt=""/></a></div>
     <div class="game">
       <div class="inner_game">
         <div class="step bg" id="step_div"><img src="images/step_1.png" alt="" id="step_image" /></div>
@@ -103,13 +103,13 @@
       </div>
     </div>
     <div class="thanks bg" id="game6_div" style="display:none;">
-      <a href="index.php"><img src="images/bg_thanks.png" alt=""/></a>
+      <a href="index.belif"><img src="images/bg_thanks.png" alt=""/></a>
     </div>
   </div>
 </div>
 
 <?
-	include_once   "./popup_div.php";
+	include_once   "./popup_div.belif";
 ?>
 <div class="mask"></div>
 </body>

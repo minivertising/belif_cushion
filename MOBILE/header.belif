@@ -1,5 +1,5 @@
 <?
-	include_once "../config.php";
+	include_once "../config.belif";
 
 	//if ($gubun == "MOBILE")
 		//echo "<script>location.href='http://www.babience-giveandtake.com/?media=ks';</script>";
@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
     <meta property="og:title" content="[빌리프] 빌리의 수분 폭탄 공장">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.belif-factory.com/MOBILE/index.php" />
+    <meta property="og:url" content="http://www.belif-factory.com/MOBILE/index.belif" />
     <meta property="og:image" content="http://www.belif-factory.com/MOBILE/images/belif_billy_share.jpg" />
     <meta property="og:description" content="숨어있는 빌리 찾고 선물받자!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
