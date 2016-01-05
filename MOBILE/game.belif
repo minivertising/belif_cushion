@@ -119,7 +119,7 @@ var scroll_control1	= null;
 var chk_mb_flag	= 0;
 
 $(document).ready(function() {
-	//Kakao.init('f3a512c4931967328de52deaf00f614e');01065200385
+	//Kakao.init('f3a512c4931967328de52deaf00f614e');
 	$("#cboxTopLeft").hide();
 	$("#cboxTopRight").hide();
 	$("#cboxBottomLeft").hide();
