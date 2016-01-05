@@ -298,27 +298,27 @@ body{
 	/*background:#fff;*/
 	position:absolute;
 	display:block;
-	width:24px;
-	height:35px;
+	width:35px;
+	height:55px;
 	text-indent:-999999px;
 }
 .sec_sub_img .game .inner_game .game_img .btn_billy.step_1{
 	/*background:#000;*/
 	position:absolute;
 	top:67%;
-	left:25%;
+	left:23%;
 }
 .sec_sub_img .game .inner_game .game_img .btn_billy.step_2{
 	/*background:#000;*/
 	position:absolute;
 	top:68%;
-	left:53%;
+	left:51%;
 }
 .sec_sub_img .game .inner_game .game_img .btn_billy.step_3{
 	/*background:#000;*/
 	position:absolute;
 	top:65%;
-	left:89%;
+	left:87%;
 }
 
 .sec_sub_img .input_info{

@@ -37,7 +37,7 @@
           <div class="bg" onclick="open_pop('wrong_popup');">
             <img src="images/game_img_1_2.png" alt=""/>
           </div>
-        </div> 
+        </div>
         <!--두번째 그림찾기-->
         <div class="game_img after" id="game3_div" style="display:none;">
           <div class="btn_billy step_2" onclick="right_answer('2');">
@@ -66,7 +66,7 @@
     </div>
     <div class="input_info" id="game5_div" style="display:none;">
       <div class="inner_input_info">
-        <div class="input"><input type="text" id="mb_name"></div>
+        <div class="input"><input type="text" id="mb_name" placeholder="한글만 입력하세요" onkeyup="only_kor(this);return false;"></div>
         <div class="input phone"><input type="tel" id="mb_phone" placeholder="숫자만 입력하세요" onkeyup="only_num(this);chk_len3(this.value);return false;"></div>
         <div class="select_area">
           <select id="mb_addr" onchange="change_addr(this)">

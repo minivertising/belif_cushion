@@ -75,7 +75,7 @@
           <img src="images/popup/img_nobilly.png" />
         </div>
         <div class="btn_go clearfix">
-          <a href="game.php"><img src="images/popup/btn_again.png" /></a>
+          <a href="#" onclick="$.colorbox.close();return false;"><img src="images/popup/btn_again.png" /></a>
         </div>
       </div><!--inner-->
     </div>

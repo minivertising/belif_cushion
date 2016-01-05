@@ -112,7 +112,7 @@ function right_answer(param)
 				$("#game5_div").show();
 				$("#game6_div").show();
 				clearInterval(counter);
-				$( 'html, body' ).animate({ scrollTop: $("#game4_div").height() + $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height()},500,function(){
+				$( 'html, body' ).animate({ scrollTop: $("#game4_div").height() + $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height()-20},500,function(){
 					//var device_height	= $(window).height();
 
 					//if (device_height > $("#game5_div").height())
@@ -164,9 +164,26 @@ function ins_info()
 		return false;
 	}
 
+	var chk_name	= chk_byte(mb_name,4);
+	if (chk_name === false)
+	{
+		alert('이름은 두글자 이상 입력해주세요.');
+		$("#mb_name").focus();
+		//chk_ins = 0;
+		return false;
+	}
+
 	if (mb_phone == "")
 	{
 		alert('전화번호를 입력해 주세요.');
+		$("#mb_phone").focus();
+		//chk_ins = 0;
+		return false;
+	}
+
+	if (mb_phone.length < 10)
+	{
+		alert('휴대폰 번호를 정확히 입력해 주세요.');
 		$("#mb_phone").focus();
 		//chk_ins = 0;
 		return false;
@@ -244,6 +261,73 @@ function only_num(obj)
 		obj.focus();
 		return false;
 	} 
+	return true;
+}
+
+function only_kor(obj)
+{
+	var inText = obj.value;
+	var outText = "";
+	var flag = true;
+	var ret;
+	for(var i = 0; i < inText.length; i++)
+	{
+		var kor_check = /([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i;
+		if (kor_check.test(inText))
+		{
+			flag	= false;
+			//alert("한글만 입력할 수 있습니다.");
+			//frm.szKor.value="";
+			//frm.szKor.focus();
+		}else{
+			outText += inText.charAt(i);
+		}
+	}
+ 
+	if(flag == false)
+	{
+		alert("이름은 한글입력만 가능합니다.");
+		obj.value = outText;
+		obj.focus();
+		return false;
+	} 
+	return true;
+}
+
+function chk_byte(in_texts, text_max)
+{
+	var ls_str = in_texts; 
+	var li_str_len = ls_str.length; //전체길이
+	//변수초기화
+	var li_max = text_max; //제한할 글자수 크기
+	var i = 0;
+	var li_byte = 0;   //한글일경우 2, 그외글자는 1을 더함
+	var li_len = 0;    // substring하기 위해 사용
+	var ls_one_char = "";  //한글자씩 검사
+	var ls_str2 = "";      //글자수를 초과하면 제한한 글자전까지만 보여줌.
+
+	for(i=0; i< li_str_len; i++)
+	{
+		ls_one_char = ls_str.charAt(i);   //한글자 추출
+		if(escape(ls_one_char).length > 4){ 
+			li_byte +=2;   //한글이면 2를 더한다
+		}else{
+			li_byte++;     //한글아니면 1을 다한다
+		}
+
+		if(li_byte <= li_max){
+			li_len = i + 1;
+		}
+	}
+	//if(li_byte > li_max)
+	if(li_byte < li_max)
+	{
+		//alert( li_max + "글자를 초과 입력할수 업습니다.");
+		//ls_str2 = ls_str.substr(0, li_len);
+		//in_texts.value = ls_str2;
+		return false;
+	}
+	//in_texts.focus();
 	return true;
 }
 
