@@ -76,6 +76,10 @@ input, select {
 li {
 	list-style: none;
 }
+
+img {
+	border:0;
+}
 /*common*/
 * {
 	padding: 0;
@@ -311,12 +315,13 @@ body.sub{
 }
 
 .btn_billy{
-	/*background:#fff;*/
+	background:#fff;
 	position:absolute;
 	display:block;
 	width:35px;
 	height:95px;
 	text-indent:-999999px;
+	filter: alpha(opacity:'0');
 }
 .btn_billy.step_1{
 	/*background:#000;*/
