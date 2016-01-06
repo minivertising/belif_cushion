@@ -113,13 +113,13 @@ function right_answer(param)
 			$(".stage_3").fadeOut(100,function(){
 					//$(".wrap_sec_game").hide();
 					clearInterval(counter);
-					var input_center	= $(window).height(); 
-					$(".wrap_sec_info").height(895);
-					$(".wrap_sec_info").css("padding","0");
-					//$(".wrap_sec_info").css("margin-top","100px");
+					var input_center	= $(window).height() - 492; 
+					$(".wrap_sec_info").height($(window).height());
+					$(".check").css("bottom",input_center+203);
+					$(".btn_detail").css("bottom",input_center+203);
+					$(".btn_input").css("bottom",input_center+130);
 					$(".wrap_sec_info").show();
 					$( 'html, body' ).animate({ scrollTop: $(".wrap_sec_game").height()+100},500,function(){
-						//$('body').bind('touchmove', function(e){e.preventDefault()});
 						$('html, body').css("overflow","hidden");
 					});
 			});
@@ -483,5 +483,17 @@ function use_coupon(param)
 			}
 		});
 	}
+}
 
+var flag_addr	= false;
+function select_addr()
+{
+	if (flag_addr === false)
+	{
+		$("#option_addr").show();
+		flag_addr	= true;
+	}else{
+		$("#option_addr").hide();
+		flag_addr	= false;
+	}
 }

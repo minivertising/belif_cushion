@@ -64,21 +64,21 @@
             <div><img src="images/game_1_2.png" alt=""/></div>
           </div>
         </div>
-
+          <!-- 개인 정보 입력 -->
         <div class="wrap_sec_info" style="display:none;">
           <div class="input top">
-            <input type="text">
+            <input type="text" id="mb_name" placeholder="한글만 입력해 주세요">
           </div>
           <div class="input second">
-            <input type="text" alt="'-'없이 입력해주세요">
+            <input type="text" id="mb_phone" alt="'-'없이 입력해주세요" placeholder="'-'없이 입력해주세요">
           </div>
-          <div class="input area">
-            <a href="#">지역</a>
+          <div class="input area" onclick="select_addr();return false;">
+            <a href="#" onclick="select_addr();return false;">지역</a>
           </div>
           <div class="input store">
-            <a href="#">매장</a>
+            <a href="#" onclick="select_shop();return false;">매장</a>
           </div>
-          <div class="list area" style="display: none;">
+          <div class="list area" id="option_addr" style="display: none;">
             <div class="inner">
               <ul>
                 <li><a href="#">명동매장</a></li>
@@ -94,7 +94,7 @@
               </ul>
             </div>
           </div>
-          <div class="list store" style="display: none;">
+          <div class="list store" id="option_shop" style="display: none;">
             <div class="inner">
               <ul>
                 <li><a href="#">명동매장</a></li>
