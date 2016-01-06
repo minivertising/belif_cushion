@@ -1,5 +1,5 @@
 <?
-	include_once "config.php";
+	include_once "config.belif";
 
 	//unset($media);
 	$media	= $_REQUEST['media'];
@@ -13,10 +13,10 @@
 
 	if($gubun == "MOBILE")
 	{
-		Header("Location:http://www.belif-factory.com/MOBILE/index.php?media=".$media."");
+		Header("Location:http://www.belif-factory.com/MOBILE/index.belif?media=".$media."");
 		exit;
 	}else{
-		Header("Location:http://www.belif-factory.com/PC/index.php?media=".$media."");
+		Header("Location:http://www.belif-factory.com/PC/index.belif?media=".$media."");
 		exit;
 	}
 
