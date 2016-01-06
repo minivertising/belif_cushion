@@ -12,9 +12,9 @@
           <a href="#" onclick="move_page('product');return false;"><img src="images/gnb_product.png" alt=""/></a>
         </div>
         <div class="right">
-          <a href="#"><img src="images/gnb_tw.png" alt=""/></a>
-          <a href="#"><img src="images/gnb_fb.png" alt=""/></a>
-          <a href="#"><img src="images/gnb_ks.png" alt=""/></a>
+          <a href="#" onclick="sns_share('tw','main');return false;"><img src="images/gnb_tw.png" alt=""/></a>
+          <a href="#" onclick="sns_share('fb','main');return false;"><img src="images/gnb_fb.png" alt=""/></a>
+          <a href="#" onclick="sns_share('ks','main');return false;"><img src="images/gnb_ks.png" alt=""/></a>
         </div>
       </div>
     </div>
@@ -35,3 +35,23 @@
 </div><!--bg_left-->
 </body>
 </html>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#cboxTopLeft").hide();
+	$("#cboxTopRight").hide();
+	$("#cboxBottomLeft").hide();
+	$("#cboxBottomRight").hide();
+	$("#cboxMiddleLeft").hide();
+	$("#cboxMiddleRight").hide();
+	$("#cboxTopCenter").hide();
+	$("#cboxBottomCenter").hide();
+<?
+	if ($_REQUEST['section'] == "product")
+	{
+?>
+	move_page('product');
+<?
+	}
+?>
+});
+</script>

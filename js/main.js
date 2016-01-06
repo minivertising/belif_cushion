@@ -62,7 +62,7 @@ function start_game()
 	$(".start").hide();
 	$("#game2_div").show();
 
-	//time_control();
+	time_control();
 }
 
 var counter = null;
@@ -87,6 +87,8 @@ function time_control()
 	}
 }
 
+
+var input_center = 0;
 function right_answer(param)
 {
 	if (param == "1")
@@ -113,7 +115,7 @@ function right_answer(param)
 			$(".stage_3").fadeOut(100,function(){
 					//$(".wrap_sec_game").hide();
 					clearInterval(counter);
-					var input_center	= $(window).height() - 492; 
+					input_center	= $(window).height() - 492; 
 					$(".wrap_sec_info").height($(window).height());
 					$(".check").css("bottom",input_center+203);
 					$(".btn_detail").css("bottom",input_center+203);
@@ -132,11 +134,11 @@ function change_addr(param)
 	$.ajax({
 		type:"POST",
 		data:{
-			"addr_idx"		: param.value
+			"addr_idx"		: param
 		},
-		url: "../MOBILE/ajax_addr.belif",
+		url: "../PC/ajax_addr.belif",
 		success: function(response){
-			$("#mb_shop").html(response);
+			$("#option_shop").html(response);
 		}
 	});
 }
@@ -145,8 +147,8 @@ function ins_info()
 {
 	var mb_name		= $("#mb_name").val();
 	var mb_phone		= $("#mb_phone").val();
-	var mb_addr		= $("#mb_addr").val();
-	var mb_shop		= $("#mb_shop").val();
+	var mb_addr		= addr_ins;
+	var mb_shop		= shop_ins;
 
 	if (mb_name == "")
 	{
@@ -195,13 +197,7 @@ function ins_info()
 		//chk_ins = 0;
 		return false;
 	}
-/*
-	if ($('#mb_agree').is(":checked") == false)
-	{
-		alert("약관에 동의를 안 하셨습니다");
-		return false;
-	}
-*/
+
 	$.ajax({
 		type:"POST",
 		data:{
@@ -214,11 +210,14 @@ function ins_info()
 		success: function(response){
 			if (response == "Y")
 			{
-				$("#game6_div").show();
-				var move_height	= $("#game4_div").height() + $("#game5_div").height()+ $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height();
-				$( 'html, body' ).animate({ scrollTop: "2200"},1500,function(){
-					//$("#game5_div").hide();
-					//$("body").css("overflow","auto");
+				//$(".wrap_sec_info").height(492);
+				$(".wrap_sec_thanks").css("margin-top",-input_center);
+				$(".wrap_sec_thanks").height($(window).height()-250);
+				$(".wrap_sec_thanks").show();
+				var move_height	= $(".wrap_sec_game").height() + $(".wrap_sec_info").height();
+				$( 'html, body' ).animate({ scrollTop: move_height},500,function(){
+					//$(".wrap_sec_info").hide();
+					$('html, body').css("overflow","hidden");
 				});
 			}else{
 				open_pop("duplicate_popup");
@@ -380,10 +379,10 @@ function mb_check()
 {
 	if (chk_mb_flag == 0)
 	{
-		$("#mb_agree").attr("src","images/checked.png");
+		$("#mb_agree").attr("src","images/check_after.png");
 		chk_mb_flag = 1;
 	}else{
-		$("#mb_agree").attr("src","images/check.png");
+		$("#mb_agree").attr("src","images/check_before.png");
 		chk_mb_flag = 0;
 	}
 }
@@ -486,7 +485,7 @@ function use_coupon(param)
 }
 
 var flag_addr	= false;
-function select_addr()
+function show_addr()
 {
 	if (flag_addr === false)
 	{
@@ -496,4 +495,78 @@ function select_addr()
 		$("#option_addr").hide();
 		flag_addr	= false;
 	}
+}
+
+var flag_shop	= false;
+function show_shop()
+{
+	if (flag_shop === false)
+	{
+		$("#option_shop").show();
+		flag_shop	= true;
+	}else{
+		$("#option_shop").hide();
+		flag_shop= false;
+	}
+}
+var addr_ins	= "";
+function sel_addr(param)
+{
+	if (param == "1")
+	{
+		$("#addr_txt").html("서울특별시");
+		$("#option_addr").hide();
+	}else if (param == "2"){
+		$("#addr_txt").html("부산광역시");
+		$("#option_addr").hide();
+	}else if (param == "3"){
+		$("#addr_txt").html("대구광역시");
+		$("#option_addr").hide();
+	}else if (param == "4"){
+		$("#addr_txt").html("인천광역시");
+		$("#option_addr").hide();
+	}else if (param == "5"){
+		$("#addr_txt").html("광주광역시");
+		$("#option_addr").hide();
+	}else if (param == "6"){
+		$("#addr_txt").html("대전광역시");
+		$("#option_addr").hide();
+	}else if (param == "7"){
+		$("#addr_txt").html("울산광역시");
+		$("#option_addr").hide();
+	}else if (param == "8"){
+		$("#addr_txt").html("경기도");
+		$("#option_addr").hide();
+	}else if (param == "9"){
+		$("#addr_txt").html("충청북도");
+		$("#option_addr").hide();
+	}else if (param == "10"){
+		$("#addr_txt").html("충청남도");
+		$("#option_addr").hide();
+	}else if (param == "11"){
+		$("#addr_txt").html("전라북도");
+		$("#option_addr").hide();
+	}else if (param == "12"){
+		$("#addr_txt").html("전라남도");
+		$("#option_addr").hide();
+	}else if (param == "13"){
+		$("#addr_txt").html("경상북도");
+		$("#option_addr").hide();
+	}else if (param == "14"){
+		$("#addr_txt").html("경상남도");
+		$("#option_addr").hide();
+	}else if (param == "15"){
+		$("#addr_txt").html("제주특별자치도");
+		$("#option_addr").hide();
+	}
+	addr_ins	= param;
+	change_addr(param);
+}
+
+var shop_ins	= "";
+function sel_shop(s_idx, s_name)
+{
+	$("#shop_txt").html(s_name);
+	$("#option_shop").hide();
+	shop_ins	= s_idx;
 }

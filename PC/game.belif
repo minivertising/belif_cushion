@@ -7,10 +7,10 @@
       <div class="bg_center">
         <div class="sec_navi">
           <div class="navi">
-            <div class="left"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+            <div class="left"><a href="index.belif"><img src="images/logo.png" alt=""/></a></div>
             <div class="center">
-              <a href="#"><img src="images/gnb_event.png" alt=""/></a>
-              <a href="#"><img src="images/gnb_product.png" alt=""/></a>
+              <a href="index.belif"><img src="images/gnb_event.png" alt=""/></a>
+              <a href="index.belif?section=product"><img src="images/gnb_product.png" alt=""/></a>
             </div>
             <div class="right">
               <a href="#"><img src="images/gnb_tw.png" alt=""/></a>
@@ -67,30 +67,35 @@
           <!-- 개인 정보 입력 -->
         <div class="wrap_sec_info" style="display:none;">
           <div class="input top">
-            <input type="text" id="mb_name" placeholder="한글만 입력해 주세요">
+            <input type="text" id="mb_name" placeholder="한글만 입력해 주세요" onkeyup="only_kor(this);return false;">
           </div>
           <div class="input second">
-            <input type="text" id="mb_phone" alt="'-'없이 입력해주세요" placeholder="'-'없이 입력해주세요">
+            <input type="text" id="mb_phone" alt="'-'없이 입력해주세요" placeholder="'-'없이 입력해주세요" onkeyup="only_num(this);chk_len3(this.value);return false;">
           </div>
-          <div class="input area" onclick="select_addr();return false;">
-            <a href="#" onclick="select_addr();return false;">지역</a>
+          <div class="input area">
+            <a href="#" onclick="show_addr();return false;" id="addr_txt">지역</a>
           </div>
           <div class="input store">
-            <a href="#" onclick="select_shop();return false;">매장</a>
+            <a href="#" onclick="show_shop();return false;" id="shop_txt">매장</a>
           </div>
           <div class="list area" id="option_addr" style="display: none;">
             <div class="inner">
               <ul>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
+                <li><a href="#" onclick="sel_addr('1');return false;">서울특별시</a></li>
+                <li><a href="#" onclick="sel_addr('2');return false;">부산광역시</a></li>
+                <li><a href="#" onclick="sel_addr('3');return false;">대구광역시</a></li>
+                <li><a href="#" onclick="sel_addr('4');return false;">인천광역시</a></li>
+                <li><a href="#" onclick="sel_addr('5');return false;">광주광역시</a></li>
+                <li><a href="#" onclick="sel_addr('6');return false;">대전광역시</a></li>
+                <li><a href="#" onclick="sel_addr('7');return false;">울산광역시</a></li>
+                <li><a href="#" onclick="sel_addr('8');return false;">경기도</a></li>
+                <li><a href="#" onclick="sel_addr('9');return false;">충청북도</a></li>
+                <li><a href="#" onclick="sel_addr('10');return false;">충청남도</a></li>
+                <li><a href="#" onclick="sel_addr('11');return false;">전라북도</a></li>
+                <li><a href="#" onclick="sel_addr('12');return false;">전라남도</a></li>
+                <li><a href="#" onclick="sel_addr('13');return false;">경상북도</a></li>
+                <li><a href="#" onclick="sel_addr('14');return false;">경상남도</a></li>
+                <li><a href="#" onclick="sel_addr('15');return false;">제주특별자치도</a></li>
               </ul>
             </div>
           </div>
@@ -98,25 +103,16 @@
             <div class="inner">
               <ul>
                 <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
-                <li><a href="#">명동매장</a></li>
               </ul>
             </div>
           </div>
-          <a href="#" class="check"><img src="images/check_after.png" alt=""/></a>
-          <a href="#" class="btn_detail">자세히보기</a>
-          <a href="#" class="btn_input"><img src="images/btn_input.png" alt=""/></a>
+          <a href="#" class="check" onclick="mb_check();return false;"><img src="images/check_before.png" alt="" name="mb_agree" id="mb_agree"/></a>
+          <a href="#" class="btn_detail" onclick="open_pop('agree_popup');return false;">자세히보기</a>
+          <a href="#" class="btn_input" onclick="ins_info();return false;"><img src="images/btn_input.png" alt=""/></a>
         </div>
 
         <div class="wrap_sec_thanks" style="display:none;">
-          <a href="#"><img src="images/sub_thanks.png" alt=""/></a>
+          <a href="#" onclick="open_pop('gift_popup');return false;"><img src="images/sub_thanks.png" alt=""/></a>
         </div>
 
       </div><!--bg_center-->

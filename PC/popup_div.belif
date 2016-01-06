@@ -1,24 +1,21 @@
 <div style="display:none;">
 <!----------------- 선물 보기 팝업 ----------------->
 <div id="gift_popup" class="popup_wrap">
-  <div class="p_mid p_position big">
+  <div class="p_position gift">
     <div class="block_close clearfix">
       <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
-    <div class="block_content view_pic">
+    <div class="block_content">
       <div class="inner">
-        <div class="btn_tap_menu clearfix">
-          <a href="#"><img src="images/popup/btn_gift_on.png" /></a>
-          <a href="#" onclick="open_pop('notice_popup');"><img src="images/popup/btn_notice_off.png" /></a>
-        </div>
-        <div class="img_pic">
-          <img src="images/popup/img_cushion.jpg" />
-        </div>
+        <img src="images/popup/pop_gift.png" usemap="#Map" />
+        <map name="Map">
+          <area shape="rect" coords="26,53,287,100" href="#" onclick="open_pop('gift_popup');return false;"><!--선물보기-->
+          <area shape="rect" coords="295,53,553,101" href="#" onclick="open_pop('notice_popup');return false;"><!--유의사항-->
+        </map>
       </div><!--inner-->
     </div>
   </div>
 </div>
-
 <!----------------- 선물 보기 팝업 ----------------->
 
 <!----------------- 참여 방법 팝업 ----------------->
@@ -44,19 +41,17 @@
 
 <!----------------- 유의 사항 팝업 ----------------->
 <div id="notice_popup" class="popup_wrap">
-  <div class="p_mid p_position big">
+  <div class="p_position gift">
     <div class="block_close clearfix">
       <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
-    <div class="block_content view_pic">
+    <div class="block_content">
       <div class="inner">
-        <div class="btn_tap_menu clearfix">
-          <a href="#" onclick="open_pop('gift_popup');"><img src="images/popup/btn_gift_off.png" /></a>
-          <a href="#"><img src="images/popup/btn_notice_on.png" /></a>
-        </div>
-        <div class="img_pic">
-          <img src="images/popup/img_noti.png" />
-        </div>
+        <img src="images/popup/pop_notice.png" usemap="#Map" />
+        <map name="Map">
+          <area shape="rect" coords="26,53,287,100" href="#" onclick="open_pop('gift_popup');return false;"><!--선물보기-->
+          <area shape="rect" coords="295,53,553,101" href="#" onclick="open_pop('notice_popup');return false;"><!--유의사항-->
+        </map>
       </div><!--inner-->
     </div>
   </div>
@@ -121,15 +116,13 @@
 
 <!----------------- 약관 팝업 ----------------->
 <div id="agree_popup" class="popup_wrap">
-  <div class="p_mid p_position big">
+  <div class="p_position agree">
     <div class="block_close clearfix">
       <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
-    <div class="block_content view_pic">
+    <div class="block_content">
       <div class="inner">
-        <div class="img_agree">
-          <img src="images/popup/img_agree.png" />
-        </div>
+        <img src="images/popup/pop_agree.png" />
       </div><!--inner-->
     </div>
   </div>
