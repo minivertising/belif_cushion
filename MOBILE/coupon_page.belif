@@ -29,7 +29,7 @@
         <div class="coupon_text">
         	<div class="coupon_text_01 clearfix">
                 <p>* 교환 가능 매장 : <?=$shop_data['shop_name']?></p>
-                <p>* 기간 : 12월 00일 ~ 12월 00일</p>
+                <p>* 기간 : 1월 11일 ~ 1월 31일</p>
             </div>
             <div class="coupon_text_02">
             	<p>* 본 쿠폰은 1인 1매 사용 가능합니다.</p>
