@@ -1,0 +1,37 @@
+<?
+	include_once   "./header.belif";
+?>
+<body class="main">
+<div class="bg_left">
+  <div class="bg_right">
+    <div class="sec_navi">
+      <div class="navi">
+        <div class="left"><a href="index.belif"><img src="images/logo.png" alt=""/></a></div>
+        <div class="center">
+          <a href="#" onclick="move_page('event');return false;"><img src="images/gnb_event.png" alt=""/></a>
+          <a href="#" onclick="move_page('product');return false;"><img src="images/gnb_product.png" alt=""/></a>
+        </div>
+        <div class="right">
+          <a href="#"><img src="images/gnb_tw.png" alt=""/></a>
+          <a href="#"><img src="images/gnb_fb.png" alt=""/></a>
+          <a href="#"><img src="images/gnb_ks.png" alt=""/></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap_sec_top">
+      <div class="bt clearfix">
+        <a href="game.belif">출발</a>
+      </div>
+    </div>
+
+    <div class="wrap_sec_img">
+      <div class="img">
+        <img src="images/img_main_cushion.png" alt=""/>
+      </div>
+    </div>
+
+  </div><!--bg_right-->
+</div><!--bg_left-->
+</body>
+</html>

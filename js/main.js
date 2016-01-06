@@ -1,92 +1,152 @@
-function change_tab(param)
-{
-	if (param == "1")
-	{
-		$(".change_tab").hide();
-		$("#benefit_contents").show();
-		$("#mygift_contents").hide();
-		$("#tab_image1").attr("src","images/tab_01_on.png");
-		$("#tab_image2").attr("src","images/tab_02_off.png");
-		$("#tab_image3").attr("src","images/tab_03_off.png");
-		$("#tab_image4").attr("src","images/tab_04_off.png");
-		$(".wrap_sec_contest_gift").hide();
-		$(".wrap_sec_voter_gift").hide();
-	}else if (param == "2"){
-		$(".change_tab").hide();
-		$("#nominee_contents").show();
-		$("#mygift_contents").hide();
-		$("#tab_image1").attr("src","images/tab_01_off.png");
-		$("#tab_image2").attr("src","images/tab_02_on.png");
-		$("#tab_image3").attr("src","images/tab_03_off.png");
-		$("#tab_image4").attr("src","images/tab_04_off.png");
-		$(".wrap_sec_contest_gift").show();
-		$(".wrap_sec_voter_gift").hide();
-	}else if (param == "3"){
-		$(".change_tab").hide();
-		$("#vote_contents").show();
-		$("#mygift_contents").hide();
-		$("#tab_image1").attr("src","images/tab_01_off.png");
-		$("#tab_image2").attr("src","images/tab_02_off.png");
-		$("#tab_image3").attr("src","images/tab_03_on.png");
-		$("#tab_image4").attr("src","images/tab_04_off.png");
-		$(".wrap_sec_contest_gift").hide();
-		$(".wrap_sec_voter_gift").show();
+$(".mask").click(function(){
+	$('#mobile_menu').animate({right:-200},300,'linear',function(){
+		$("#mobile_menu").hide();
+		$(".mask").fadeOut(300);
+		$(window).off(".disableScroll");
+	});
+});
 
-		$.ajax({
-			type:"POST",
-			data:{
-				"pg"		: "1",
-				"vote_param": "all"
-			},
-			url: "./ajax_list.php",
-			success: function(response){
-				$(".sec_list").html(response);
-			}
+function show_menu()
+{
+	if ($("#mobile_menu").css("display") == "block")
+	{
+		$('#mobile_menu').animate({right:-200},300,'linear',function(){
+			$("#mobile_menu").hide();
+			$(".mask").fadeOut(300);
+			$(window).off(".disableScroll");
 		});
-	}else if (param == "4"){
-		$(".change_tab").hide();
-		$("#mygift_contents").show();
-		$("#tab_image1").attr("src","images/tab_01_off.png");
-		$("#tab_image2").attr("src","images/tab_02_off.png");
-		$("#tab_image3").attr("src","images/tab_03_off.png");
-		$("#tab_image4").attr("src","images/tab_04_on.png");
-		$(".wrap_sec_contest_gift").hide();
-		$(".wrap_sec_voter_gift").hide();
+	}else{
+		$(".mask").width($(window).width());
+		$(".mask").height($(window).height());
+		$(".mask").fadeTo(1000, 0.8);
+
+		$('#mobile_menu').css('right','-200px');
+		// 이동위치값 지정
+		var position = 0;
+		$('#mobile_menu').show().animate({right:position},300,'linear');
+
+		$(window).on("mousewheel.disableScroll DOMMouseScroll.disableScroll touchmove.disableScroll", function(e) {
+			e.preventDefault();
+			return;
+		});
 	}
 }
 
-
-function reg_nominee(param)
+function open_pop(param)
 {
-	if (param == "1")
+	if (param == "wrong_popup")
 	{
-		sel_nominee	= "1";
-	}else if (param == "2"){
-		sel_nominee	= "2";
-	}else if (param == "3"){
-		sel_nominee	= "3";
-	}else if (param == "4"){
-		sel_nominee	= "4";
-	}else if (param == "5"){
-		sel_nominee	= "5";
+		var pop_w	= "474px";
+		var pop_h	= "459px";
+		var pop_oh	= "417px";
+	}else if (param == "timeover_popup")
+	{
+		var pop_w	= "474px";
+		var pop_h	= "482px";
+		var pop_oh	= "440px";
 	}
-	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(500);
+	$.colorbox({width:pop_w, height:pop_h, inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
+		$("#cboxLoadedContent").height(pop_oh);
 		$("#cboxContent").css("background","none");
 	},
 	onClosed: function(){
-		del_info();
 	}});
+}
 
+var count = 26;
+var gage_per	= 0;
+var gage_num	= 0;
+
+function start_game()
+{
+	$(".start").hide();
+	$("#game2_div").show();
+
+	//time_control();
+}
+
+var counter = null;
+
+function time_control()
+{
+	counter = setInterval(timer, 1000); //10 will  run it every 100th of a second
+
+	function timer()
+	{
+		if (count <= 0)
+		{
+			clearInterval(counter);
+			open_pop("timeover_popup");
+			return;
+		}
+		count--;
+		gage_num++;
+		gage_per	= (gage_num / 26)*100;
+		$(".time_txt").html(count);
+		$(".gage").css("width",gage_per+"%");
+	}
+}
+
+function right_answer(param)
+{
+	if (param == "1")
+	{
+		$(".stage_1").fadeIn(200,function(){
+			$(".stage_1").fadeOut(100,function(){
+				$("#game2_div").fadeOut(100,function(){
+					$("#game3_div").fadeIn(100);
+				});
+			});
+		});
+		$("#step_image").attr("src","images/step_2.png");
+	}else if (param == "2"){
+		$(".stage_2").fadeIn(200,function(){
+			$(".stage_2").fadeOut(100,function(){
+				$("#game3_div").fadeOut(100,function(){
+					$("#game4_div").fadeIn(100);
+				});
+			});
+		});
+		$("#step_image").attr("src","images/step_3.png");
+	}else if (param == "3"){
+		$(".stage_3").fadeIn(200,function(){
+			$(".stage_3").fadeOut(100,function(){
+					//$(".wrap_sec_game").hide();
+					clearInterval(counter);
+					var input_center	= $(window).height(); 
+					$(".wrap_sec_info").height(895);
+					$(".wrap_sec_info").css("padding","0");
+					//$(".wrap_sec_info").css("margin-top","100px");
+					$(".wrap_sec_info").show();
+					$( 'html, body' ).animate({ scrollTop: $(".wrap_sec_game").height()+100},500,function(){
+						//$('body').bind('touchmove', function(e){e.preventDefault()});
+						$('html, body').css("overflow","hidden");
+					});
+			});
+		});
+	}
+}
+
+function change_addr(param)
+{
+	$.ajax({
+		type:"POST",
+		data:{
+			"addr_idx"		: param.value
+		},
+		url: "../MOBILE/ajax_addr.belif",
+		success: function(response){
+			$("#mb_shop").html(response);
+		}
+	});
 }
 
 function ins_info()
 {
 	var mb_name		= $("#mb_name").val();
-	var mb_phone1		= $("#mb_phone1").val();
-	var mb_phone2		= $("#mb_phone2").val();
-	var mb_phone3		= $("#mb_phone3").val();
-	var mb_phone		= mb_phone1 + mb_phone2 + mb_phone3;
+	var mb_phone		= $("#mb_phone").val();
+	var mb_addr		= $("#mb_addr").val();
+	var mb_shop		= $("#mb_shop").val();
 
 	if (mb_name == "")
 	{
@@ -96,18 +156,35 @@ function ins_info()
 		return false;
 	}
 
-	if (mb_phone2 == "")
+	var chk_name	= chk_byte(mb_name,4);
+	if (chk_name === false)
 	{
-		alert('전화번호를 입력해 주세요.');
-		$("#mb_phone2").focus();
+		alert('이름은 두글자 이상 입력해주세요.');
+		$("#mb_name").focus();
 		//chk_ins = 0;
 		return false;
 	}
 
-	if (mb_phone3 == "")
+	if (mb_phone == "")
 	{
 		alert('전화번호를 입력해 주세요.');
-		$("#mb_phone3").focus();
+		$("#mb_phone").focus();
+		//chk_ins = 0;
+		return false;
+	}
+
+	if (mb_phone.length < 10)
+	{
+		alert('휴대폰 번호를 정확히 입력해 주세요.');
+		$("#mb_phone").focus();
+		//chk_ins = 0;
+		return false;
+	}
+
+	if (mb_addr == "")
+	{
+		alert('매장을 선택해 주세요.');
+		$("#mb_addr").focus();
 		//chk_ins = 0;
 		return false;
 	}
@@ -131,716 +208,23 @@ function ins_info()
 			"exec"				: "insert_info",
 			"mb_name"		: mb_name,
 			"mb_phone"		: mb_phone,
-			"sel_nominee"	: sel_nominee
+			"mb_shop"		: mb_shop,
 		},
-		url: "../main_exec.php",
+		url: "../main_exec.belif",
 		success: function(response){
-			if (ins_info_flag == 0)
-			{
-				reg_name		= mb_name;
-				reg_phone		= mb_phone;
-				ins_info_flag		= 1;
-			}
 			if (response == "Y")
 			{
-				$.colorbox({width:"542px", height:"742px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(700);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-			}else if (response == "Y1"){
-				$.colorbox({width:"542px", height:"742px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(700);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-			}else if (response == "D"){
-				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_nominee_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(300);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-			}else if (response == "AD"){
-				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#all_dupli_nominee_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(300);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
+				$("#game6_div").show();
+				var move_height	= $("#game4_div").height() + $("#game5_div").height()+ $("#step_div").height()+ $("#sec_div").height()+ $("#bar_div").height()+ $(".close").height();
+				$( 'html, body' ).animate({ scrollTop: "2200"},1500,function(){
+					//$("#game5_div").hide();
+					//$("body").css("overflow","auto");
+				});
 			}else{
-				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
+				open_pop("duplicate_popup");
 			}
 		}
 	});
-}
-
-$(function () {
-    'use strict';
-    // Change this to the location of your server-side upload handler:
-    var url = 'file_upload.php';
-/*
-	var url = 'file_upload.php',
-        //uploadButton = $('<button/>')
-        uploadButton = $('#upload_pic')
-            .addClass('btn btn-primary')
-            //.prop('disabled', true)
-            .text('Processing...')
-            .on('click', function () {
-                var $this = $(this),
-                    data = $this.data();
-                $this
-                    .off('click')
-                    .text('Abort')
-                    .on('click', function () {
-                        $this.remove();
-                        data.abort();
-                    });
-                data.submit().always(function () {
-                    $this.remove();
-                });
-            });
-*/
-			/*
-		$("#upload_pic").on('click', function(){
-                var $this = $(this),
-                    data = $this.data();
-                $this
-                    .off('click')
-                    .text('Abort')
-                    .on('click', function () {
-                        $this.remove();
-                        data.abort();
-                    });
-                data.submit().always(function () {
-                    $this.remove();
-                });
-		});
-		*/
-    $('#fileupload').fileupload({
-        url: url,
-        dataType: 'json',
-        autoUpload: false,
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        maxFileSize: 99900000,
-        // Enable image resizing, except for Android and Opera,
-        // which actually support image resizing, but fail to
-        // send Blob objects via XHR requests:
-        disableImageResize: /Android(?!.*Chrome)|Opera/
-            .test(window.navigator.userAgent),
-        previewMaxWidth: 100,
-        previewMaxHeight: 100,
-        previewCrop: true
-    }).on('fileuploadadd', function (e, data) {
-		// 파일 삭제
-		del_fileview();
-        data.context = $('<div/>').appendTo('#files');
-        $.each(data.files, function (index, file) {
-			img_name = file.name;
-            var node = $('<p/>');
-                   // .append($('<span/>').text(file.name));
-			  $("#image_up_name").val(file.name);
-            if (!index) {
-                //node
-                  //  .append('<br>')
-                    //.append(uploadButton.clone(true).data(data));
-				//uploadButton.clone(true).data(data);
-				data.submit();
-            }
-
-            node.appendTo(data.context);
-        });
-    }).on('fileuploadprocessalways', function (e, data) {
-        var index = data.index,
-            file = data.files[index],
-            node = $(data.context.children()[index]);
-        if (file.preview) {
-            node
-                .prepend('<br>')
-                .prepend(file.preview);
-        }
-        if (file.error) {
-            node
-                .append('<br>')
-                .append($('<span class="text-danger"/>').text(file.error));
-        }
-        if (index + 1 === data.files.length) {
-            data.context.find('button')
-                .text('Upload')
-                .prop('disabled', !!data.files.error);
-        }
-    }).on('fileuploadprogressall', function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        $('#progress .progress-bar').css(
-            'width',
-            progress + '%'
-        );
-		$(".loading").show();
-		$("html body").css("overflow","hidden");
-		Timer();
-    }).on('fileuploaddone', function (e, data) {
-        $.each(data.result.files, function (index, file) {
-            if (file.url) {
-                var link = $('<a>')
-                    .attr('target', '_blank')
-                    .prop('href', file.url);
-                $(data.context.children()[index])
-                    .wrap(link);
-            } else if (file.error) {
-                var error = $('<span class="text-danger"/>').text(file.error);
-                $(data.context.children()[index])
-                    .append('<br>')
-                    .append(error);
-            }
-        });
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-});
-
-function Timer() {
-	setTimeout("hide_loading();",3000);
-}
-
-function hide_loading(){
-	$(".loading").hide();
-	$("html body").css("overflow","");
-}
-
-function del_fileview()
-{
-	$("#files").html("");
-}
-
-function ins_pic_info()
-{
-	var mb_baby_name		= $("#mb_baby_name").val();
-	var mb_baby_month		= $("#mb_baby_month").val();
-	var mb_pic				= img_name;
-	var mb_youtube_url	= $("#youtube_url").val();
-
-
-	if (mb_baby_name == "")
-	{
-		alert('아기 이름을 입력해 주세요.');
-		$("#mb_baby_name").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if (mb_baby_month == "")
-	{
-		alert('아기 개월수를 입력해 주세요.');
-		$("#mb_baby_month").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if (mb_pic === null)
-	{
-		if (mb_youtube_url == "")
-		{
-			alert('사진 혹은 유튜브URL을 입력해 주세요.');
-			//chk_ins = 0;
-			return false;
-		}
-	}
-
-	$.ajax({
-		type:"POST",
-		data:{
-			"exec"					: "insert_pic_info",
-			"mb_baby_name"	: mb_baby_name,
-			"mb_baby_month"	: mb_baby_month,
-			"mb_pic"				: mb_pic,
-			"mb_youtube_url"	: mb_youtube_url
-		},
-		url: "../main_exec.php",
-		success: function(response){
-			if (response	== "Y")
-			{
-				$.colorbox({width:"542px", height:"700px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(658);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-				$("#nominee_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
-			}else if (response	== "Y1"){
-				$.colorbox({width:"542px", height:"700px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(658);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-				$("#nominee_gift_image").attr("src","images/popup/gift_coupon.png");
-			}else{
-				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
-			}
-		}
-	});
-}
-
-function ins_vote_info()
-{
-	var vote_name			= $("#vote_name").val();
-	var vote_phone1		= $("#vote_phone1").val();
-	var vote_phone2		= $("#vote_phone2").val();
-	var vote_phone3		= $("#vote_phone3").val();
-	var mb_youtube_url	= $("#youtube_url").val();
-	var vote_phone			= vote_phone1 + vote_phone2 + vote_phone3;
-
-	if (vote_name == "")
-	{
-		alert('엄마(아빠) 이름을 입력해 주세요.');
-		$("#vote_name").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if (vote_phone2 == "")
-	{
-		alert('전화번호를 입력해 주세요.');
-		$("#vote_phone2").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if (vote_phone3 == "")
-	{
-		alert('전화번호를 입력해 주세요.');
-		$("#vote_phone3").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if (chk_vote_flag == 0)
-	{
-		alert("개인정보 취급 동의/광고동의를 안 하셨습니다");
-		//chk_ins = 0;
-		return false;
-	}
-
-	$.ajax({
-		type:"POST",
-		data:{
-			"exec"				: "insert_vote_info",
-			"vote_name"		: vote_name,
-			"vote_phone"	: vote_phone,
-			"vote_idx"		: vote_idx
-		},
-		url: "../main_exec.php",
-		success: function(response){
-			var resArray	= response.split("||");
-			if (resArray[1] == "DELIVERY")
-			{
-				$.colorbox({width:"542px", height:"700px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(658);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-				$("#vote_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
-			}else if (resArray[1] == "DISCOUNT"){
-				$.colorbox({width:"542px", height:"700px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(658);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-				$("#vote_gift_image").attr("src","images/popup/gift_coupon.png");
-			}else if (resArray[1] == "WATER"){
-				$.colorbox({width:"542px", height:"700px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(658);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-				$("#vote_gift_image").attr("src","images/popup/gift_coupon_waterbox.png");
-			}else if (resArray[1] == "SKIN"){
-				$.colorbox({width:"542px", height:"700px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(658);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-				$("#vote_gift_image").attr("src","images/popup/gift_coupon_skincare.png");
-			}else if (resArray[1] == "CLEAN"){
-				$.colorbox({width:"542px", height:"700px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(658);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-				$("#vote_gift_image").attr("src","images/popup/gift_coupon_fabric.png");
-			}else if (resArray[1] == "no"){
-				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_vote_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(300);
-					$("#cboxContent").css("background","none");
-				},
-				onClosed: function(){
-					del_info();
-				}});
-			}else{
-				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
-			}
-		}
-	});
-}
-
-function pop_search_nominee()
-{
-	var search_baby_name	= $("#search_baby_name").val();
-	var vote_param				= "all";
-
-	$.ajax({
-		type:"POST",
-		data:{
-			"vote_param"			: vote_param,
-			"search_baby_name"	: search_baby_name
-		},
-		url: "./ajax_list.php",
-		success: function(response){
-			$.colorbox.close();
-			$(".sec_list").html(response);
-		}
-	});
-}
-
-function go_vote(cidx)
-{
-	vote_idx	= cidx;
-
-	if (confirm("이후보에 투표하시겠습니까?"))
-	{
-		$.colorbox({width:"692px", height:"412px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_notice", onComplete: function(){
-			$("#cboxLoadedContent").height(370);
-			$("#cboxContent").css("background","none");
-		},
-		onClosed: function(){
-			del_info();
-		}});
-	}
-}
-
-function go_vote2()
-{
-
-		if (ins_info_flag == 0)
-		{
-			$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
-				$("#cboxLoadedContent").height(500);
-				$("#cboxContent").css("background","none");
-			},
-			onClosed: function(){
-				del_info();
-			}});
-		}else{
-			$.ajax({
-				type:"POST",
-				data:{
-					"exec"				: "insert_vote_info",
-					"vote_name"		: reg_name,
-					"vote_phone"	: reg_phone,
-					"vote_idx"		: vote_idx
-				},
-				url: "../main_exec.php",
-				success: function(response){
-					var resArray	= response.split("||");
-					if (resArray[1] == "DELIVERY")
-					{
-						$.colorbox({width:"542px", height:"697px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-							$("#cboxLoadedContent").height(655);
-							$("#cboxContent").css("background","none");
-						},
-						onClosed: function(){
-							del_info();
-						}});
-						$("#vote_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
-					}else if (resArray[1] == "DISCOUNT"){
-						$.colorbox({width:"542px", height:"697px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-							$("#cboxLoadedContent").height(655);
-							$("#cboxContent").css("background","none");
-						},
-						onClosed: function(){
-							del_info();
-						}});
-						$("#vote_gift_image").attr("src","images/popup/gift_coupon.png");
-					}else if (resArray[1] == "WATER"){
-						$.colorbox({width:"542px", height:"697px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-							$("#cboxLoadedContent").height(655);
-							$("#cboxContent").css("background","none");
-						},
-						onClosed: function(){
-							del_info();
-						}});
-						$("#vote_gift_image").attr("src","images/popup/gift_coupon_waterbox.png");
-					}else if (resArray[1] == "SKIN"){
-						$.colorbox({width:"542px", height:"697px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-							$("#cboxLoadedContent").height(655);
-							$("#cboxContent").css("background","none");
-						},
-						onClosed: function(){
-							del_info();
-						}});
-						$("#vote_gift_image").attr("src","images/popup/gift_coupon_skincare.png");
-					}else if (resArray[1] == "CLEAN"){
-						$.colorbox({width:"542px", height:"697px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-							$("#cboxLoadedContent").height(655);
-							$("#cboxContent").css("background","none");
-						},
-						onClosed: function(){
-							del_info();
-						}});
-						$("#vote_gift_image").attr("src","images/popup/gift_coupon_fabric.png");
-					}else if (resArray[1] == "no"){
-						$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_vote_popup", onComplete: function(){
-							$("#cboxLoadedContent").height(300);
-							$("#cboxContent").css("background","none");
-						},
-						onClosed: function(){
-							del_info();
-						}});
-					}else{
-						alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
-					}
-				}
-			});
-	}
-}
-
-function open_pop(param, paramw, paramh)
-{
-	if (~param.indexOf("detail_pic_popup"))
-	{
-		if (paramw == '0')
-		{
-			paramw	= 530;
-			paramh	= 292 + 300;
-			resizeHeight	= 300;
-		}else{
-			resizeHeight = (paramh * 530) / paramw;
-			paramh		= 292 + resizeHeight;
-		}
-			//paramw = "692";
-		//if (paramh == '0')
-		//	paramh = "592";
-		// w= 530 h = 300
-		$.colorbox({width:"692px", height:paramh+"px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
-			$("#cboxLoadedContent").height(paramh-40);
-			$("#cboxContent").css("background","none");
-			$(".pic").height(resizeHeight);
-			$(".pic img").height(resizeHeight);
-			$(".p_mid_view").height(paramh-5);
-			$(".p_position").height(paramh-5);
-		},
-		onClosed: function(){
-			del_info();
-		}});
-	}else if (~param.indexOf("agree_popup")){
-		$.colorbox({width:"442px", height:"522px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#agree_popup", onComplete: function(){
-			$("#cboxLoadedContent").height(480);
-			$("#cboxContent").css("background","none");
-		},
-		onClosed: function(){
-			del_info();
-		}});
-	}else if (~param.indexOf("agree2_popup")){
-		$.colorbox({width:"442px", height:"522px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#agree_popup2", onComplete: function(){
-			$("#cboxLoadedContent").height(480);
-			$("#cboxContent").css("background","none");
-		},
-		onClosed: function(){
-			del_info();
-		}});
-	}
-}
-
-function sort_list(param)
-{
-	if (param == "all")
-	{
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_on.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
-	}else if (param == "1"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_on.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
-	}else if (param == "2"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_on.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
-	}else if (param == "3"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_on.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
-	}else if (param == "4"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_on.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
-	}else if (param == "5"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_on.png");
-	}
-	vote_sort	= param;
-
-	$.ajax({
-		type:"POST",
-		data:{
-			"vote_param"		: param
-		},
-		url: "./ajax_list.php",
-		success: function(response){
-			$(".sec_list").html(response);
-		}
-	});
-}
-
-function gift_search()
-{
-	var search_name		= $("#search_name").val();
-	var search_phone	= $("#search_phone1").val() + $("#search_phone2").val() + $("#search_phone3").val();
-
-	if (search_name == "")
-	{
-		alert('엄마(아빠) 이름을 입력해주세요.');
-		$("#search_name").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if ($("#search_phone2").val() == "")
-	{
-		alert('전화번호를 입력해주세요.');
-		$("#search_phone2").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	if ($("#search_phone3").val() == "")
-	{
-		alert('전화번호를 입력해주세요.');
-		$("#search_phone3").focus();
-		//chk_ins = 0;
-		return false;
-	}
-
-	$.ajax({
-		type:"POST",
-		data:{
-			"search_name"		: search_name,
-			"search_phone"		: search_phone
-		},
-		url: "./ajax_search2.php",
-		success: function(response){
-			//$(".sear_gift_list").show();
-			//$(".sear_gift_btn").show();
-			//$(".sear_no_gift_list").hide();
-			//$(".sear_no_gift_btn").hide();
-			$("#search_list_area").html(response);
-		}
-	});
-
-}
-
-function mb_check()
-{
-	if (chk_mb_flag == 0)
-	{
-		$("#mb_agree").attr("src","images/popup/checked.png");
-		chk_mb_flag = 1;
-	}else{
-		$("#mb_agree").attr("src","images/popup/check.png");
-		chk_mb_flag = 0;
-	}
-}
-
-function vote_check()
-{
-	if (chk_vote_flag == 0)
-	{
-		$("#vote_agree").attr("src","images/popup/checked.png");
-		chk_vote_flag = 1;
-	}else{
-		$("#vote_agree").attr("src","images/popup/check.png");
-		chk_vote_flag = 0;
-	}
-}
-
-function back_input(param)
-{
-	if (param == "nominee")
-	{
-		$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
-			$("#cboxLoadedContent").height(500);
-			$("#cboxContent").css("background","none");
-		},
-		onClosed: function(){
-			del_info();
-		}});
-	}else{
-		$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
-			$("#cboxLoadedContent").height(500);
-			$("#cboxContent").css("background","none");
-		},
-		onClosed: function(){
-			del_info();
-		}});
-	}
-}
-
-function nominee_search()
-{
-	$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_search_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(300);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		del_info();
-	}});
-}
-
-function offline_info()
-{
-	$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#offline_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(640);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		del_info();
-	}});
 }
 
 function only_num(obj)
@@ -872,7 +256,7 @@ function only_num(obj)
 	return true;
 }
 
-function only_num2(obj)
+function only_kor(obj)
 {
 	var inText = obj.value;
 	var outText = "";
@@ -880,24 +264,62 @@ function only_num2(obj)
 	var ret;
 	for(var i = 0; i < inText.length; i++)
 	{
-		ret = inText.charCodeAt(i);
-		if((ret < 48) || (ret > 57))
+		var kor_check = /([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i;
+		if (kor_check.test(inText))
 		{
-			flag = false;
-		}
-		else
-		{
+			flag	= false;
+			//alert("한글만 입력할 수 있습니다.");
+			//frm.szKor.value="";
+			//frm.szKor.focus();
+		}else{
 			outText += inText.charAt(i);
 		}
 	}
  
 	if(flag == false)
 	{
-		alert("현재 개월수는 숫자로 입력해주세요.");
+		alert("이름은 한글입력만 가능합니다.");
 		obj.value = outText;
 		obj.focus();
 		return false;
 	} 
+	return true;
+}
+
+function chk_byte(in_texts, text_max)
+{
+	var ls_str = in_texts; 
+	var li_str_len = ls_str.length; //전체길이
+	//변수초기화
+	var li_max = text_max; //제한할 글자수 크기
+	var i = 0;
+	var li_byte = 0;   //한글일경우 2, 그외글자는 1을 더함
+	var li_len = 0;    // substring하기 위해 사용
+	var ls_one_char = "";  //한글자씩 검사
+	var ls_str2 = "";      //글자수를 초과하면 제한한 글자전까지만 보여줌.
+
+	for(i=0; i< li_str_len; i++)
+	{
+		ls_one_char = ls_str.charAt(i);   //한글자 추출
+		if(escape(ls_one_char).length > 4){ 
+			li_byte +=2;   //한글이면 2를 더한다
+		}else{
+			li_byte++;     //한글아니면 1을 다한다
+		}
+
+		if(li_byte <= li_max){
+			li_len = i + 1;
+		}
+	}
+	//if(li_byte > li_max)
+	if(li_byte < li_max)
+	{
+		//alert( li_max + "글자를 초과 입력할수 업습니다.");
+		//ls_str2 = ls_str.substr(0, li_len);
+		//in_texts.value = ls_str2;
+		return false;
+	}
+	//in_texts.focus();
 	return true;
 }
 
@@ -919,84 +341,51 @@ function chk_len2(val)
 
 function chk_len3(val)
 {
-	if (val.length == 4)
+	if (val.length == 11)
 	{
-		$("#vote_phone3").focus();
+		$("#mb_phone").blur();
 	}
 }
 
-function chk_len4(val)
-{
-	if (val.length == 4)
-	{
-		$("#vote_phone3").blur();
-	}
-}
+// gnb
+$(document).on("click", ".gnbBtn", function(){
+	$("html").addClass("gnbOpen");
+	$(".sec_top").hide();
+	$(".sec_main_img").hide();
+});
+$(document).on("click", "#m_menu_close", function(){
+	$("html").removeClass("gnbOpen");
+	$(".sec_top").show();
+	$(".sec_main_img").show();
+});
 
-function chk_len5(val)
-{
-	if (val.length == 4)
-	{
-		$("#search_phone3").focus();
-	}
-}
+$(document).on("click", "#m_event_show", function(){
+	$("html").removeClass("gnbOpen");
+	$(".sec_top").show();
+});
 
-function chk_len6(val)
+function move_page(param)
 {
-	if (val.length == 4)
+	if (param == "product")
 	{
-		$("#search_phone3").blur();
-	}
-}
-
-
-function tab_upload_use(param)
-{
-	if (param == "pic")
-	{
-		$("#tab_upload_image1").attr("src","images/popup/btn_upload_pic_on.png");
-		$("#tab_upload_image2").attr("src","images/popup/btn_upload_movie_off.png");
-		$("#mov_input_area").hide();
-		$("#pic_input_area").show();
+		var product_area	= $(".wrap_sec_top").height();
+		$( 'html, body' ).animate({ scrollTop: product_area},500);
 	}else{
-		$("#tab_upload_image1").attr("src","images/popup/btn_upload_pic_off.png");
-		$("#tab_upload_image2").attr("src","images/popup/btn_upload_movie_on.png");
-		$("#pic_input_area").hide();
-		$("#mov_input_area").show();
+		var product_area	= $(".wrap_sec_top").height() * 0.4;
+		$( 'html, body' ).animate({ scrollTop: 0},500);
 	}
 }
 
-function del_info()
+function mb_check()
 {
-	$("#mb_name").val("");
-	$("#mb_phone1").val("010");
-	$("#mb_phone2").val("");
-	$("#mb_phone3").val("");
-	$("#mb_agree").attr("src","images/popup/check.png");
-	chk_mb_flag = 0;
-	$("#vote_name").val("");
-	$("#vote_phone1").val("010");
-	$("#vote_phone2").val("");
-	$("#vote_phone3").val("");
-	$("#vote_agree").attr("src","images/popup/check.png");
-	chk_vote_flag = 0;
-	$("#mb_baby_name").val("");
-	$("#image_up_name").val("");
-	$("#files").html('<img src="images/popup/pre_img.jpg" />');
-	$("#search_baby_name").val("");
-	$(".p_mid_view").height("");
-	$(".p_position").height("");
-}
-
-function chk_link()
-{
-	var youtube_url	= $("#youtube_url").val();
-	if (youtube_url	== "")
+	if (chk_mb_flag == 0)
 	{
-		alert('영상 URL을 입력해주세요.');
-		return false;
+		$("#mb_agree").attr("src","images/checked.png");
+		chk_mb_flag = 1;
+	}else{
+		$("#mb_agree").attr("src","images/check.png");
+		chk_mb_flag = 0;
 	}
-	alert('영상이 올라갔습니다.');
 }
 
 function sns_share(media, flag)
@@ -1004,11 +393,11 @@ function sns_share(media, flag)
 	if (media == "fb")
 	{
 
-		var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://awards.babience-event.com/PC/index.php'),'sharer','toolbar=0,status=0,width=600,height=325');
+		var newWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://www.belif-factory.com/MOBILE/index.belif'),'sharer','toolbar=0,status=0,width=600,height=325');
 		$.ajax({
 			type   : "POST",
 			async  : false,
-			url    : "../main_exec.php",
+			url    : "../main_exec.belif",
 			data:{
 				"exec" : "insert_share_info",
 				"sns_media" : media,
@@ -1017,11 +406,37 @@ function sns_share(media, flag)
 		});
 		//var newWindow = window.open('https://www.facebook.com/dialog/feed?app_id=1604312303162602&display=popup&caption=testurl&link=http://vacance.babience-event.com&redirect_uri=http://www.hanatour.com','sharer','toolbar=0,status=0,width=600,height=325');
 	}else if (media == "tw"){
-		var newWindow = window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent("후보 지원해도, 심사만해도 100% 당첨되는 특별한 시상식에 여러분을 초대합니다.") + '&url='+ encodeURIComponent('http://bit.ly/1OcWJ8X'),'sharer','toolbar=0,status=0,width=600,height=325');
+		var newWindow = window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent("빌리의 수분 폭탄 공장에 숨어 있는 빌리를 찾아주신 분에게는 즉석 당첨을 통해 수분 폭탄 쿠션 미니어처를 드립니다. ") + '&url='+ encodeURIComponent('http://bit.ly/1QuvGJU'),'sharer','toolbar=0,status=0,width=600,height=325');
 		$.ajax({
 			type   : "POST",
 			async  : false,
-			url    : "../main_exec.php",
+			url    : "../main_exec.belif",
+			data:{
+				"exec" : "insert_share_info",
+				"sns_media" : media,
+				"sns_flag"		: flag
+			}
+		});
+	}else if (media == "kt"){
+		// 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+		//Kakao.Link.createTalkLinkButton({
+		Kakao.Link.sendTalkLink({
+		  //container: '#kakao-link-btn',
+		  label: "빌리를 찾으면 수분 폭탄 쿠션이 내게로",
+		  image: {
+			src: 'http://www.belif-factory.com/MOBILE/images/belif_billy_share.jpg',
+			width: '1200',
+			height: '630'
+		  },
+		  webButton: {
+			text: '빌리의 수분 폭탄 공장',
+			url: 'http://www.belif-factory.com/?media=kt' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+		  }
+		});
+		$.ajax({
+			type   : "POST",
+			async  : false,
+			url    : "../main_exec.belif",
 			data:{
 				"exec" : "insert_share_info",
 				"sns_media" : media,
@@ -1030,13 +445,13 @@ function sns_share(media, flag)
 		});
 	}else{
 		Kakao.Story.share({
-			url: 'http://awards.babience-event.com/',
-			text: '후보 지원해도, 심사만해도 100% 당첨되는 특별한 시상식에 여러분을 초대합니다. >> http://bit.ly/1OcWRFF'
+			url: 'http://www.belif-factory.com/MOBILE/index.belif?media=ks',
+			text: '[빌리프] 빌리의 수분 폭탄 공장\r\n\r\n빌리의 수분 폭탄 공장에 숨어 있는 빌리를 찾아주신분에게는 즉석당첨을 통해 수분 폭탄 쿠션 미니어처를 드립니다.'
 		});
 		$.ajax({
 			type   : "POST",
 			async  : false,
-			url    : "../main_exec.php",
+			url    : "../main_exec.belif",
 			data:{
 				"exec" : "insert_share_info",
 				"sns_media" : media,
@@ -1044,4 +459,29 @@ function sns_share(media, flag)
 			}
 		});
 	}
+}
+
+function use_coupon(param)
+{
+	if (confirm("쿠폰을 사용하시겠습니까?"))
+	{
+		$.ajax({
+			type:"POST",
+			data:{
+				"exec"				: "use_coupon",
+				"mb_phone"		: param
+			},
+			url: "../main_exec.belif",
+			success: function(response){
+				if (response == "Y")
+				{
+					alert('쿠폰이 사용처리되었습니다. 감사합니다.');
+					location.reload();
+				}else{
+					alert('사용자가 많아 처리가 지연되고 있습니다. 잠시후 다시 시도해 주세요.');
+				}
+			}
+		});
+	}
+
 }

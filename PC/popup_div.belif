@@ -1,0 +1,139 @@
+<div style="display:none;">
+<!----------------- 선물 보기 팝업 ----------------->
+<div id="gift_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="btn_tap_menu clearfix">
+          <a href="#"><img src="images/popup/btn_gift_on.png" /></a>
+          <a href="#" onclick="open_pop('notice_popup');"><img src="images/popup/btn_notice_off.png" /></a>
+        </div>
+        <div class="img_pic">
+          <img src="images/popup/img_cushion.jpg" />
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+
+<!----------------- 선물 보기 팝업 ----------------->
+
+<!----------------- 참여 방법 팝업 ----------------->
+<div id="use_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="img_pic">
+          <img src="images/popup/img_step.png" />
+        </div>
+        <div class="btn_go clearfix">
+          <a href="#"><img src="images/popup/btn_go.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+
+<!----------------- 참여 방법 팝업 ----------------->
+
+<!----------------- 유의 사항 팝업 ----------------->
+<div id="notice_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="btn_tap_menu clearfix">
+          <a href="#" onclick="open_pop('gift_popup');"><img src="images/popup/btn_gift_off.png" /></a>
+          <a href="#"><img src="images/popup/btn_notice_on.png" /></a>
+        </div>
+        <div class="img_pic">
+          <img src="images/popup/img_noti.png" />
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 유의 사항 팝업 ----------------->
+
+<!----------------- 게임 오답 팝업 ----------------->
+<div id="wrong_popup" class="popup_wrap">
+  <div class="p_position billy_not">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <img src="images/popup/pop_billy_not.png" usemap="#Map" />
+        <map name="Map">
+          <area shape="rect" coords="114,322,313,379" href="#" onclick="$.colorbox.close();return false;">
+        </map>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 게임 오답 팝업 ----------------->
+
+<!----------------- 게임 타임오버 팝업 ----------------->
+<div id="timeover_popup" class="popup_wrap">
+  <div class="p_position billy_run">
+    <div class="block_close clearfix">
+      <a href="game.belif" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <img src="images/popup/pop_billy_run.png" usemap="#Map2" />
+        <map name="Map2">
+          <area shape="rect" coords="115,344,314,401" href="game.belif">
+        </map>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 게임 타임오버 팝업 ----------------->
+
+<!----------------- 중복 참여 팝업 ----------------->
+<div id="duplicate_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="index.belif" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="img_pic">
+          <img src="images/popup/img_billyend.png" />
+        </div>
+        <div class="btn_go clearfix">
+          <a href="index.belif"><img src="images/popup/btn_end.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 중복 참여 팝업 ----------------->
+
+<!----------------- 약관 팝업 ----------------->
+<div id="agree_popup" class="popup_wrap">
+  <div class="p_mid p_position big">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="img_agree">
+          <img src="images/popup/img_agree.png" />
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 약관 팝업 ----------------->
+
+</div>

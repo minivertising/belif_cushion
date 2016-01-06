@@ -1,0 +1,148 @@
+<?
+	include_once   "./header.belif";
+?>
+<body class="sub">
+  <div class="bg_left">
+    <div class="bg_right">
+      <div class="bg_center">
+        <div class="sec_navi">
+          <div class="navi">
+            <div class="left"><a href="#"><img src="images/logo.png" alt=""/></a></div>
+            <div class="center">
+              <a href="#"><img src="images/gnb_event.png" alt=""/></a>
+              <a href="#"><img src="images/gnb_product.png" alt=""/></a>
+            </div>
+            <div class="right">
+              <a href="#"><img src="images/gnb_tw.png" alt=""/></a>
+              <a href="#"><img src="images/gnb_fb.png" alt=""/></a>
+              <a href="#"><img src="images/gnb_ks.png" alt=""/></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrap_sec_game">
+          <div class="step">
+            <img src="images/step_1.png" alt="" id="step_image" />
+          </div>
+          <div class="txt_time">
+            <img src="images/txt_time.png" alt=""/>
+          </div>
+          <div class="time">
+            <div class="inner clearfix">
+              <div class="num time_txt">26</div>
+              <div class="label"><img src="images/txt_time_num.png" alt=""/></div>
+            </div>
+          </div>
+          <div class="bg_gage">
+            <div class="gage" style="width:0%"></div>
+          </div>
+          <div class="game start">
+            <a href="#" onclick="start_game();return false;"><img src="images/game_1_1.png" alt=""/></a>
+          </div>
+          <!-- 숨은 그림 찾기 게임 1 -->
+          <div class="game ing" id="game2_div" style="display:none;">
+            <div class="btn_billy step_1" onclick="right_answer('1');" style="cursor:pointer;">
+              <a href="#">빌리</a>
+            </div>
+            <img src="images/okay.png" alt="" class="okay stage_1" style="display:none;"/>
+            <div onclick="open_pop('wrong_popup');"><img src="images/game_1_2.png" alt=""/></div>
+          </div>
+          <!-- 숨은 그림 찾기 게임 2 -->
+          <div class="game ing" id="game3_div" style="display:none;">
+            <div class="btn_billy step_2" onclick="right_answer('2');" style="cursor:pointer;">
+              <a href="#">빌리</a>
+            </div>
+            <img src="images/okay.png" alt="" class="okay stage_2" style="display:none;"/>
+            <div><img src="images/game_1_2.png" alt=""/></div>
+          </div>
+          <!-- 숨은 그림 찾기 게임 3 -->
+          <div class="game ing" id="game4_div" style="display:none;">
+            <div class="btn_billy step_3" onclick="right_answer('3');" style="cursor:pointer;">
+              <a href="#">빌리</a>
+            </div>
+            <img src="images/okay.png" alt="" class="okay stage_3" style="display:none;"/>
+            <div><img src="images/game_1_2.png" alt=""/></div>
+          </div>
+        </div>
+
+        <div class="wrap_sec_info" style="display:none;">
+          <div class="input top">
+            <input type="text">
+          </div>
+          <div class="input second">
+            <input type="text" alt="'-'없이 입력해주세요">
+          </div>
+          <div class="input area">
+            <a href="#">지역</a>
+          </div>
+          <div class="input store">
+            <a href="#">매장</a>
+          </div>
+          <div class="list area" style="display: none;">
+            <div class="inner">
+              <ul>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="list store" style="display: none;">
+            <div class="inner">
+              <ul>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+                <li><a href="#">명동매장</a></li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="check"><img src="images/check_after.png" alt=""/></a>
+          <a href="#" class="btn_detail">자세히보기</a>
+          <a href="#" class="btn_input"><img src="images/btn_input.png" alt=""/></a>
+        </div>
+
+        <div class="wrap_sec_thanks" style="display:none;">
+          <a href="#"><img src="images/sub_thanks.png" alt=""/></a>
+        </div>
+
+      </div><!--bg_center-->
+    </div><!--bg_right-->
+  </div><!--bg_left-->
+<?
+	include_once   "./popup_div.belif";
+?>
+</body>
+</html>
+<script type="text/javascript">
+var scroll_control1	= null;
+var chk_mb_flag	= 0;
+
+$(document).ready(function() {
+	//Kakao.init('f3a512c4931967328de52deaf00f614e');
+	$("#cboxTopLeft").hide();
+	$("#cboxTopRight").hide();
+	$("#cboxBottomLeft").hide();
+	$("#cboxBottomRight").hide();
+	$("#cboxMiddleLeft").hide();
+	$("#cboxMiddleRight").hide();
+	$("#cboxTopCenter").hide();
+	$("#cboxBottomCenter").hide();
+	scroll_control1	= ($(".game").height() + $(".close").height()) - $(window).height();
+	//$(".wrap_sec_info").height($(window).height());
+	//$(".wrap_sec_info").css("padding-bottom","0px");
+});
+</script>

@@ -300,6 +300,34 @@ body.sub{
 	left:137px;
 }
 
+.btn_billy{
+	background:#fff;
+	position:absolute;
+	display:block;
+	width:35px;
+	height:95px;
+	text-indent:-999999px;
+}
+.btn_billy.step_1{
+	/*background:#000;*/
+	position:absolute;
+	top:67%;
+	left:25%;
+}
+.btn_billy.step_2{
+	/*background:#000;*/
+	position:absolute;
+	top:67%;
+	left:25%;
+}
+.btn_billy.step_3{
+	/*background:#000;*/
+	position:absolute;
+	top:67%;
+	left:25%;
+}
+
+
 .wrap_sec_info{
 	height:492px;
 	width:667px;
