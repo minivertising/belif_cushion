@@ -111,27 +111,33 @@ body{
 	position:relative;
 	margin-top:0; 
 }
-
 .sec_sub_coupon .thanks{
 	position:absolute;
 	bottom:35%; }
 
 .sec_sub_coupon .coupon{
 	position:absolute;
-	bottom:13%; 
+	bottom:17%; 
 }
 
 .sec_sub_coupon{
 	float:right; 
-	font-size:14px;
 	font-weight:bold;
 	line-height:19px;
 }
-.sec_sub_coupon .coupon_text{
+.sec_sub_coupon .coupon_text{ 
 	position:absolute;
-	bottom:25%; 
-	text-align:center;
-	width:100%;
+	bottom:27%; text-align:center;   
+	width:100%; 
+	}
+.sec_sub_coupon .coupon_text .coupon_text_01{
+	font-size:15px; text-align:left;
+	}
+.sec_sub_coupon .coupon_text .coupon_text_02{
+	font-size:12px; padding-top:5px; color:#555;
+	}
+.sec_sub_coupon .coupon_note .coupon_text_03{ position:absolute;
+	font-size:12px; color:#555;  bottom:10%; width:100%; text-align:center;
 	}
 
 @media screen and (min-device-width: 321px) and (max-device-width: 375px) {

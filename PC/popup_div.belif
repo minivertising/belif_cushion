@@ -64,11 +64,11 @@
     <div class="block_close clearfix">
       <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
-    <div class="block_content">
+    <div class="block_content" onclick="$.colorbox.close();return false;">
       <div class="inner">
         <img src="images/popup/pop_billy_not.png" usemap="#Map" />
         <map name="Map">
-          <area shape="rect" coords="114,322,313,379" href="#" onclick="$.colorbox.close();return false;">
+          <area shape="rect" coords="115,344,314,401" href="#" onclick="$.colorbox.close();return false;">
         </map>
       </div><!--inner-->
     </div>
@@ -96,18 +96,16 @@
 
 <!----------------- 중복 참여 팝업 ----------------->
 <div id="duplicate_popup" class="popup_wrap">
-  <div class="p_mid p_position big">
+  <div class="p_position billy_already">
     <div class="block_close clearfix">
       <a href="index.belif" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
-    <div class="block_content view_pic">
+    <div class="block_content" onclick="location.href='index.belif';">
       <div class="inner">
-        <div class="img_pic">
-          <img src="images/popup/img_billyend.png" />
-        </div>
-        <div class="btn_go clearfix">
-          <a href="index.belif"><img src="images/popup/btn_end.png" /></a>
-        </div>
+        <img src="images/popup/pop_billy_already.png" usemap="#Map" />
+        <map name="Map">
+          <area shape="rect" coords="118,473,317,530" href="index.belif">
+        </map>
       </div><!--inner-->
     </div>
   </div>

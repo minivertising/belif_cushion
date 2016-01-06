@@ -300,8 +300,18 @@ body.sub{
 	left:137px;
 }
 
+.wrap_sec_game .game.ing img.okay.stage_2{
+	top:665px;
+	left:337px;
+}
+
+.wrap_sec_game .game.ing img.okay.stage_3{
+	top:625px;
+	left:577px;
+}
+
 .btn_billy{
-	background:#fff;
+	/*background:#fff;*/
 	position:absolute;
 	display:block;
 	width:35px;
@@ -317,14 +327,14 @@ body.sub{
 .btn_billy.step_2{
 	/*background:#000;*/
 	position:absolute;
-	top:67%;
-	left:25%;
+	top:65%;
+	left:54%;
 }
 .btn_billy.step_3{
 	/*background:#000;*/
 	position:absolute;
-	top:67%;
-	left:25%;
+	top:61%;
+	left:90%;
 }
 
 
@@ -387,7 +397,7 @@ body.sub{
 }
 
 .wrap_sec_info .list .inner{
-	overflow:scroll;
+	overflow-y:scroll;
 	height:200px;
 	width:100%;
 }

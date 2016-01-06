@@ -53,7 +53,7 @@
               <a href="#">빌리</a>
             </div>
             <img src="images/okay.png" alt="" class="okay stage_2" style="display:none;"/>
-            <div><img src="images/game_1_2.png" alt=""/></div>
+            <div onclick="open_pop('wrong_popup');"><img src="images/game_2_2.png" alt=""/></div>
           </div>
           <!-- 숨은 그림 찾기 게임 3 -->
           <div class="game ing" id="game4_div" style="display:none;">
@@ -61,7 +61,7 @@
               <a href="#">빌리</a>
             </div>
             <img src="images/okay.png" alt="" class="okay stage_3" style="display:none;"/>
-            <div><img src="images/game_1_2.png" alt=""/></div>
+            <div onclick="open_pop('wrong_popup');"><img src="images/game_3_2.png" alt=""/></div>
           </div>
         </div>
           <!-- 개인 정보 입력 -->
@@ -101,9 +101,9 @@
           </div>
           <div class="list store" id="option_shop" style="display: none;">
             <div class="inner">
-              <ul>
-                <li><a href="#">명동매장</a></li>
-              </ul>
+              <!-- <ul>
+                <li><a href="#">매장을 </a></li>
+              </ul> -->
             </div>
           </div>
           <a href="#" class="check" onclick="mb_check();return false;"><img src="images/check_before.png" alt="" name="mb_agree" id="mb_agree"/></a>
