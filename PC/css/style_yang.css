@@ -353,18 +353,22 @@ body.sub{
 	width:195px;
 }
 .wrap_sec_info .input.area{
-	padding-left:305px;
-	padding-top:19px;
+	padding-left:300px;
+	margin-top:14px;
 }
 .wrap_sec_info .input.store{
-	padding-left:305px;
-	padding-top:23px;
+	padding-left:300px;
+	margin-top:11px;
 }
 .wrap_sec_info .input.area a,
 .wrap_sec_info .input.store a{
 	text-decoration:none;
 	color:#000;
 	font-size:14px;
+	display:block;
+	width:191px;
+	height:16px;
+	padding:6px 7px;
 }
 .wrap_sec_info .list{
 	position:absolute;
