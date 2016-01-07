@@ -322,6 +322,7 @@ body.sub{
 	height:95px;
 	text-indent:-999999px;
 	filter: alpha(opacity:'0');
+	opacity:0;
 }
 .btn_billy.step_1{
 	/*background:#000;*/
