@@ -121,9 +121,16 @@ function right_answer(param)
 					$(".btn_detail").css("bottom",input_center+203);
 					$(".btn_input").css("bottom",input_center+130);
 					$(".wrap_sec_info").show();
-					$( 'html, body' ).animate({ scrollTop: $(".wrap_sec_game").height()+100},500,function(){
-						$('html, body').css("overflow","hidden");
-					});
+					if ($(window).height() > 1000)
+					{
+						$( 'html, body' ).animate({ scrollTop: $(".wrap_sec_game").height()+100},500,function(){
+							$('html, body').css("overflow","hidden");
+						});
+					}else{
+						$( 'html, body' ).animate({ scrollTop: $(".wrap_sec_game").height()+200},500,function(){
+							$('html, body').css("overflow","hidden");
+						});
+					}
 			});
 		});
 	}
@@ -215,10 +222,18 @@ function ins_info()
 				$(".wrap_sec_thanks").height($(window).height()-250);
 				$(".wrap_sec_thanks").show();
 				var move_height	= $(".wrap_sec_game").height() + $(".wrap_sec_info").height();
-				$( 'html, body' ).animate({ scrollTop: move_height},500,function(){
-					//$(".wrap_sec_info").hide();
-					$('html, body').css("overflow","hidden");
-				});
+				if ($(window).height() > 1000)
+				{
+					$( 'html, body' ).animate({ scrollTop: move_height},500,function(){
+						//$(".wrap_sec_info").hide();
+						$('html, body').css("overflow","hidden");
+					});
+				}else{
+					$( 'html, body' ).animate({ scrollTop: move_height+350},500,function(){
+						//$(".wrap_sec_info").hide();
+						$('html, body').css("overflow","hidden");
+					});
+				}
 			}else{
 				open_pop("duplicate_popup");
 			}
