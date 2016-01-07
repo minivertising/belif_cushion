@@ -1,6 +1,6 @@
 <?php
 	// 설정파일
-	include_once "../config.php";
+	include_once "../config.belif";
 /*
 	if (isset($_SESSION['ss_mb_id']) == false)
 	{
@@ -28,7 +28,7 @@
             <div id="daily_topgirl_vote_count_div1" style="display:block">
               <table class="table table-hover">
                 <thead>
-                  <tr><th>날짜</th><th>공유위치</th><th>공유매체</th><th>PC</th><th>Mobile</th><th>Total</th></tr>
+                  <tr><th>날짜</th><th>공유위치</th><th>PC</th><th>Mobile</th><th>Total</th></tr>
                 </thead>
                 <tbody>
 <?php
@@ -57,6 +57,7 @@
 			$mobile_count	= mysqli_num_rows(mysqli_query($my_db, $mobile_query));
 			$pc_cnt[]		= $pc_count;
 			$mobile_cnt[]	= $mobile_count;
+			$total_cnt[]		= $pc_count + $mobile_count;
 		}
 
 		$rowspan_cnt =  count($media_name);
@@ -76,7 +77,7 @@
                     <td><?=$val?></td>
                     <td><?=number_format($pc_cnt[$i])?></td>
                     <td><?=number_format($mobile_cnt[$i])?></td>
-                    <td><?=number_format($media_cnt[$i])?></td>
+                    <td><?=number_format($total_cnt[$i])?></td>
                   </tr>
 <?php
 			$total_media_cnt += $media_cnt[$i];

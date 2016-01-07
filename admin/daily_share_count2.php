@@ -1,6 +1,6 @@
 <?php
 	// 설정파일
-	include_once "../config.php";
+	include_once "../config.belif";
 
 	include "./head.php";
 ?>

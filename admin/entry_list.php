@@ -1,7 +1,7 @@
 <?php
 
 	// 설정파일
-	include_once "../config.php";
+	include_once "../config.belif";
 
 /*
 	if (isset($_SESSION['ss_mb_id']) == false)
@@ -104,17 +104,12 @@
                 <th>IP주소</th>
                 <th>이름</th>
                 <th>전화번호</th>
-                <th>후보지원항목</th>
-                <th>아기 이름</th>
-                <th>아기 개월수</th>
-                <th>업로드 구분</th>
-                <th>업로드 URL</th>
-                <th>당첨 선물</th>
-                <th>득표수</th>
-                <th>난수번호</th>
+                <th>선택한 매장</th>
+                <th>유입경로</th>
                 <th>유입매체</th>
-                <th>구분</th>
                 <th>참여일자</th>
+                <th>쿠폰 사용여부</th>
+                <th>쿠폰 사용일자</th>
               </tr>
             </thead>
             <tbody>
@@ -146,43 +141,21 @@
 
 	foreach($buyer_info as $key => $val)
 	{
-		if ($buyer_info[$key]['mb_sel_nominees'] == "1")
-			$sel_nominees	= "심쿵미소 연기상";
-		else if ($buyer_info[$key]['mb_sel_nominees'] == "2")
-			$sel_nominees	= "혼신의 눈물 연기상";
-		else if ($buyer_info[$key]['mb_sel_nominees'] == "3")
-			$sel_nominees	= "코믹 표정 연기상";
-		else if ($buyer_info[$key]['mb_sel_nominees'] == "4")
-			$sel_nominees	= "베비언스 먹방상";
-		else if ($buyer_info[$key]['mb_sel_nominees'] == "5")
-			$sel_nominees	= "폭풍숙면 연기상";
-
-		if ($buyer_info[$key]['mb_upload_flag'] == "P")
-			$upload_flag		= "사진";
-		else
-			$upload_flag		= "영상";
-
-		if ($buyer_info[$key]['mb_winner']	= "Y")
-			$winner	= "배송쿠폰";
-		else
-			$winner	= "할인쿠폰";
+		$shop_query = "SELECT shop_name FROM ".$_gl['shop_info_table']." WHERE idx='".$buyer_info[$key]['mb_shop']."'";
+		$shop_res = mysqli_query($my_db, $shop_query);
+		$shop_name = mysqli_fetch_array(mysqli_query($my_db, $shop_query));
 ?>
               <tr>
                 <td><?php echo $PAGE_UNCOUNT--?></td>	<!-- No. 하나씩 감소 -->
                 <td><?php echo $buyer_info[$key]['mb_ipaddr']?></td>
                 <td><?php echo $buyer_info[$key]['mb_name']?></td>
                 <td><?php echo $buyer_info[$key]['mb_phone']?></td>
-                <td><?php echo $sel_nominees?></td>
-                <td><?php echo $buyer_info[$key]['mb_baby_name']?></td>
-                <td><?php echo $buyer_info[$key]['mb_baby_month']?></td>
-                <td><?php echo $upload_flag?></td>
-                <td><?php echo $buyer_info[$key]['mb_upload_url']?></td>
-                <td><?php echo $winner?></td>
-                <td><?php echo number_format($buyer_info[$key]['mb_vote'])?></td>
-                <td><?php echo $buyer_info[$key]['mb_serial']?></td>
+                <td><?php echo $shop_name['shop_name']?></td>
                 <td><?php echo $buyer_info[$key]['mb_media']?></td>
                 <td><?php echo $buyer_info[$key]['mb_gubun']?></td>
                 <td><?php echo $buyer_info[$key]['mb_regdate']?></td>
+                <td><?php echo $buyer_info[$key]['mb_use']?></td>
+                <td><?php echo $buyer_info[$key]['mb_usedate']?></td>
               </tr>
 <?php 
 	}

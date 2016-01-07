@@ -14,7 +14,7 @@ if (isset($_SESSION['ss_mb_name']) == false)
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>베비언스 - 어워즈</title>
+    <title>빌리프 - Where's Billy</title>
 	<!-- jQuery Version 1.11.0 -->
 	<script src="js/jquery-1.11.0.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -51,7 +51,7 @@ if (isset($_SESSION['ss_mb_name']) == false)
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="daily_influx_count.php">베비언스 - 어워즈</a>
+          <a class="navbar-brand" href="daily_influx_count.php">빌리프 - Where's Billy</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -74,9 +74,9 @@ if (isset($_SESSION['ss_mb_name']) == false)
                     <a href="daily_influx_count.php">일자별 매체 유입자 수</a>
                   </li>
                   <li>
-                    <a href="daily_share_count2.php">일자별 SNS 공유 수</a>
+                    <a href="daily_share_count.php">일자별 SNS 공유 수</a>
                   </li>
-                    <li>
+                    <!-- <li>
                     <a href="daily_event_count.php">일자별 후보등록 이벤트 참여자 수</a>
                   </li>
                     <li>
@@ -84,7 +84,7 @@ if (isset($_SESSION['ss_mb_name']) == false)
                   </li>
                    <li>
                     <a href="daily_nominee_count.php">일자별 항목당 후보 지원 수</a>
-                  </li>
+                  </li> -->
                   <li>
                     <a href="daily_media_count.php">일자별 매체당 참여자 수</a>
                   </li>
@@ -96,9 +96,9 @@ if (isset($_SESSION['ss_mb_name']) == false)
               <!-- <li>
                 <a href="comment_list.php"><i class="fa fa-fw fa-table"></i> 코멘트 목록</a>
               </li> -->
-               <li>
+               <!-- <li>
                 <a href="winner_count.php"><i class="fa fa-fw fa-table"></i> 경품별 당첨자 수</a>
-              </li>
+              </li> -->
               <li>
                 <a href="media_count.php"><i class="fa fa-fw fa-edit"></i> 매체별 참여자 수</a>
               </li>
