@@ -1,6 +1,6 @@
 <?
 	// 설정파일
-	include_once "../config.php";
+	include_once "../config.belif";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>베비언스 - 어워즈</title>
+    <title>빌리프 - Where's Billy</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-6">
-            <h1 class="page-header">베비언스 - 어워즈</h1>
+            <h1 class="page-header">빌리프 - Where's Billy</h1>
             <ol class="breadcrumb">
               <form name="login_frm" method="post" action="admin_exec.php">
                 <input type="hidden" name="exec" value="login">
