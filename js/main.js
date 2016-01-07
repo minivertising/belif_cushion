@@ -62,7 +62,7 @@ function start_game()
 	$(".start").hide();
 	$("#game2_div").show();
 
-	//time_control();
+	time_control();
 }
 
 var counter = null;
