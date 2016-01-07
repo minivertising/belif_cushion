@@ -229,7 +229,7 @@ function ins_info()
 						$('html, body').css("overflow","hidden");
 					});
 				}else{
-					$( 'html, body' ).animate({ scrollTop: move_height+350},500,function(){
+					$( 'html, body' ).animate({ scrollTop: move_height+450},500,function(){
 						//$(".wrap_sec_info").hide();
 						$('html, body').css("overflow","hidden");
 					});
