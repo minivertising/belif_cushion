@@ -123,6 +123,31 @@ body{
 	width:100%;
 	background:#fff;
 }
+
+.sec_q{
+	position: fixed;
+	right:1.5%;
+	top:50%;
+	margin-top:-100px;
+	width:76px;
+	height:218px;
+}
+.sec_q .inner{
+	background:url(../images/bg_q.png) no-repeat;	
+	width:76px;
+	height:218px;
+}
+.sec_q .inner .btn{
+	width:70px;
+	height:70px;
+	text-align:center;
+	padding-top:10px;
+	padding-left:2px;
+}
+.sec_q .inner .btn.first{
+	padding-top:80px;
+}
+
 .navi{
 	height:50px;
 	position:relative;
